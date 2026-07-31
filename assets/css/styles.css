@@ -1123,7 +1123,7 @@ body{
 /* Main brush-calligraphy title V11 */
 .hero-v2 h1{
   font-family:"Nanum Brush Script","Nanum Pen Script","Noto Serif KR",cursive;
-  font-size:clamp(62px,6.6vw,96px);
+  font-size:clamp(52px,5.6vw,80px);
   font-weight:400;
   line-height:1.02;
   letter-spacing:.015em;
@@ -1140,5 +1140,5 @@ body{
   font-weight:400
 }
 @media(max-width:700px){
-  .hero-v2 h1{font-size:56px;line-height:1.04}
+  .hero-v2 h1{font-size:48px;line-height:1.06}
 }
