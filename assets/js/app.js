@@ -103,7 +103,7 @@ function initMusic(){
 
   const css=document.createElement('link');
   css.rel='stylesheet';
-  css.href='assets/css/ambient-music.css?v=20260801-inline-volume-v9';
+  css.href='assets/css/ambient-music.css?v=20260801-fortune-song-v10';
   document.head.appendChild(css);
 
   const saved=Number(localStorage.getItem(VOLUME_KEY));
@@ -122,17 +122,16 @@ function initMusic(){
   control.setAttribute('aria-label','온길 배경음악');
   control.innerHTML=`
     <button class="ambient-music-toggle" type="button" aria-pressed="false" aria-label="배경음악 재생">
-      <span aria-hidden="true">♪</span><b>음악 켜기</b>
+      <span aria-hidden="true">♪</span><b>복을 부르는 노래</b>
     </button>
     <div class="ambient-volume-wrap">
       <label for="ongilAmbientVolume">음량</label>
       <input class="ambient-volume" id="ongilAmbientVolume" type="range" min="0" max="50" step="1" value="${Math.round(initialVolume*100)}">
       <span class="ambient-volume-value">${Math.round(initialVolume*100)}%</span>
     </div>`;
-  const heroTrust=document.querySelector('.hero-v2-trust');
-  const heroCopy=document.querySelector('.hero-v2-copy');
-  if(heroTrust&&heroCopy){
-    heroCopy.insertBefore(control,heroTrust);
+  const heroVisual=document.querySelector('.hero-v2-visual');
+  if(heroVisual){
+    heroVisual.appendChild(control);
   }else{
     document.body.appendChild(control);
   }
@@ -145,7 +144,6 @@ function initMusic(){
   function setPlaying(playing){
     toggle.setAttribute('aria-pressed',String(playing));
     toggle.setAttribute('aria-label',playing?'배경음악 일시정지':'배경음악 재생');
-    label.textContent=playing?'음악 끄기':'음악 켜기';
   }
 
   toggle.addEventListener('click',async()=>{
@@ -163,7 +161,7 @@ function initMusic(){
 
   audio.addEventListener('pause',()=>setPlaying(false));
   audio.addEventListener('play',()=>setPlaying(true));
-  audio.addEventListener('error',()=>{setPlaying(false);label.textContent='음악 오류'});
+  audio.addEventListener('error',()=>{setPlaying(false);label.textContent='복을 부르는 노래'});
 }
 
 loadCore()
