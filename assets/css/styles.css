@@ -918,3 +918,47 @@ body{
   .hero-v2-visual{min-height:420px;border-radius:25px}
   .hero-v2-visual:after{left:17px;right:17px;bottom:17px;font-size:12px}
 }
+
+
+/* ONGIL Hero V6 — original generated sumukhwa artwork */
+.hero.hero-v2{
+  min-height:740px;
+  background:#f5f0e4
+}
+.hero-v2 .hero-v2-grid{
+  grid-template-columns:.88fr 1.12fr;
+  min-height:700px;
+  gap:56px
+}
+.hero-v2-visual{
+  min-height:590px;
+  border:0;
+  border-radius:30px;
+  background-image:
+    linear-gradient(to right,rgba(245,240,228,.18),transparent 22%),
+    url("../img/ongil-hero-sumukhwa-v1.webp");
+  background-size:cover;
+  background-position:center;
+  box-shadow:0 28px 75px rgba(35,62,53,.15)
+}
+.hero-v2-visual:before{display:none}
+.hero-v2-visual:after{
+  content:"좋은 시작을 한곳에서";
+  left:50%;
+  right:auto;
+  bottom:28px;
+  width:min(330px,calc(100% - 44px));
+  transform:translateX(-50%);
+  padding:15px 20px;
+  border-radius:999px;
+  background:#12493d;
+  box-sizing:border-box
+}
+@media(max-width:1000px){
+  .hero-v2 .hero-v2-grid{grid-template-columns:1fr}
+  .hero-v2-visual{min-height:500px;max-width:none}
+}
+@media(max-width:700px){
+  .hero-v2-visual{min-height:390px;background-position:62% center}
+  .hero-v2-visual:after{bottom:16px}
+}
