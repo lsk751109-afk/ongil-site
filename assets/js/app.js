@@ -153,7 +153,6 @@ function initMusic(){
 loadCore()
   .catch(error=>console.error(error))
   .finally(()=>{
-    rebuildHome();
     initMusic();
   });
 })();
