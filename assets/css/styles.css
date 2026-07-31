@@ -1061,3 +1061,56 @@ body{
   .hero-service-shortcuts-inner{border-radius:15px}
   .hero-service-shortcuts button{min-height:42px;font-size:13px}
 }
+
+
+/* Hero controls polish V9 */
+.hero-service-shortcuts{
+  padding:28px 0 36px;
+  background:#f5f0e4
+}
+.hero-service-shortcuts-inner{
+  display:grid;
+  grid-template-columns:repeat(9,minmax(0,1fr));
+  gap:10px;
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none
+}
+.hero-service-shortcuts button{
+  min-width:0;
+  min-height:52px;
+  padding:0 10px;
+  border:1px solid rgba(18,73,61,.16);
+  border-radius:16px;
+  color:#21483e;
+  background:rgba(255,255,255,.82);
+  box-shadow:0 8px 22px rgba(18,73,61,.055);
+  font-size:13px;
+  font-weight:750;
+  letter-spacing:-.025em
+}
+.hero-service-shortcuts button:hover{
+  color:#12493d;
+  border-color:rgba(18,73,61,.32);
+  background:#fff;
+  box-shadow:0 12px 26px rgba(18,73,61,.1);
+  transform:translateY(-2px)
+}
+.hero-service-shortcuts button.active{
+  color:#fff;
+  border-color:#12493d;
+  background:#12493d;
+  box-shadow:0 12px 28px rgba(18,73,61,.18);
+  transform:none
+}
+@media(max-width:1000px){
+  .hero-service-shortcuts{padding:22px 0 30px}
+  .hero-service-shortcuts-inner{display:flex;gap:9px;padding:2px 0 10px}
+  .hero-service-shortcuts button{min-width:112px;min-height:49px}
+}
+@media(max-width:700px){
+  .hero-service-shortcuts{padding:18px 0 24px}
+  .hero-service-shortcuts button{min-width:104px;min-height:46px;border-radius:14px}
+}
