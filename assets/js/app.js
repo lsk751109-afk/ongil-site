@@ -93,7 +93,7 @@ function initMusic(){
 
   const css=document.createElement('link');
   css.rel='stylesheet';
-  css.href='assets/css/ambient-music.css';
+  css.href='assets/css/ambient-music.css?v=20260801-upper-left';
   document.head.appendChild(css);
 
   const saved=Number(localStorage.getItem(VOLUME_KEY));
