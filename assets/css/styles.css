@@ -1114,3 +1114,7 @@ body{
   .hero-service-shortcuts{padding:18px 0 24px}
   .hero-service-shortcuts button{min-width:104px;min-height:46px;border-radius:14px}
 }
+
+
+/* Hero artwork action V10 */
+.hero-v2-visual:after{display:none;content:none}
