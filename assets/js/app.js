@@ -97,7 +97,7 @@ function initMusic(){
   document.head.appendChild(css);
 
   const saved=Number(localStorage.getItem(VOLUME_KEY));
-  const initialVolume=Number.isFinite(saved)&&saved>=0&&saved<=0.2?saved:0.07;
+  const initialVolume=Number.isFinite(saved)&&saved>=0&&saved<=0.5?saved:0.2;
 
   const audio=new Audio(MUSIC_URL);
   audio.id='ongilAmbientMusic';
@@ -116,7 +116,7 @@ function initMusic(){
     </button>
     <div class="ambient-volume-wrap">
       <label for="ongilAmbientVolume">음량</label>
-      <input class="ambient-volume" id="ongilAmbientVolume" type="range" min="0" max="20" step="1" value="${Math.round(initialVolume*100)}">
+      <input class="ambient-volume" id="ongilAmbientVolume" type="range" min="0" max="50" step="1" value="${Math.round(initialVolume*100)}">
       <span class="ambient-volume-value">${Math.round(initialVolume*100)}%</span>
     </div>`;
   document.body.appendChild(control);
