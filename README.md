@@ -12,6 +12,7 @@
 - 저장함: 검색, 종류 필터, 개별 열기·삭제, 전체 JSON 백업·복원
 - 결제: 현재 비활성화
 - 도메인: `ongil.io.kr`
+- 배포: GitHub Actions를 통한 GitHub Pages 자동 배포
 
 ## 저장소 구조
 
