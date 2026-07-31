@@ -24,11 +24,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Build Ongil theme
+      - name: Build Ongil theme and service panels
         run: python scripts/build_theme.py
-
-      - name: Build original Ongil main landing
-        run: python scripts/build_main_landing.py
 
       - name: Remove memorial rite from date selection
         run: python scripts/build_date_options.py
