@@ -806,3 +806,115 @@ body{
   .workspace-tabs button{flex:none}
 }
 
+
+
+/* ONGIL Video Reference Main V5 — recreated without source footage */
+.hero.hero-v2{
+  min-height:760px;
+  color:#17231f;
+  background:
+    radial-gradient(circle at 91% 7%,rgba(182,203,194,.62) 0 115px,transparent 116px),
+    radial-gradient(circle at 4% 93%,rgba(171,63,43,.055),transparent 24%),
+    #f5f0e4
+}
+.hero.hero-v2:before{
+  opacity:.35;
+  background-image:
+    linear-gradient(rgba(91,75,45,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(91,75,45,.02) 1px,transparent 1px);
+  background-size:5px 5px;
+  mask-image:none
+}
+.hero-v2-badge{
+  color:#a7432f;
+  border:1px solid #a7432f;
+  border-radius:5px;
+  background:transparent;
+  font-size:12px;
+  letter-spacing:.12em
+}
+.hero-v2-badge:before{display:none}
+.hero-v2 h1{color:#17231f;font-weight:820;line-height:1.15}
+.hero-v2 h1 span{
+  margin-top:8px;
+  color:#184d40;
+  background:none;
+  -webkit-text-fill-color:currentColor
+}
+.hero-v2-lead{color:#52635d}
+.hero-v2 .button.primary{
+  color:#fff;
+  background:#12493d;
+  border-color:#12493d;
+  border-radius:999px;
+  box-shadow:0 13px 30px rgba(18,73,61,.17)
+}
+.hero-v2 .button.ghost{
+  color:#12493d;
+  background:rgba(255,255,255,.45);
+  border-color:rgba(18,73,61,.25);
+  border-radius:999px
+}
+.hero-v2-trust{border-color:rgba(18,73,61,.14)}
+.hero-v2-trust div{border-color:rgba(18,73,61,.14)}
+.hero-v2-trust strong{color:#173f35}
+.hero-v2-trust span{color:#728079}
+.hero-v2-visual{
+  min-height:560px;
+  padding:0;
+  border:1px solid rgba(18,73,61,.13);
+  border-radius:34px;
+  background:
+    linear-gradient(to top,rgba(28,70,59,.22),transparent 42%),
+    radial-gradient(ellipse at 17% 91%,#183f35 0 9%,transparent 10%),
+    radial-gradient(ellipse at 83% 88%,#294f43 0 11%,transparent 12%),
+    radial-gradient(ellipse at 8% 72%,rgba(36,75,64,.78) 0 16%,transparent 17%),
+    radial-gradient(ellipse at 89% 66%,rgba(50,85,74,.72) 0 18%,transparent 19%),
+    conic-gradient(from 42deg at 22% 79%,transparent 0 9%,rgba(39,73,63,.78) 10% 24%,transparent 25%),
+    conic-gradient(from -35deg at 75% 72%,transparent 0 14%,rgba(52,84,73,.65) 15% 30%,transparent 31%),
+    radial-gradient(ellipse at 50% 62%,rgba(255,253,245,.94) 0 7%,transparent 7.6%),
+    radial-gradient(ellipse at 50% 43%,rgba(255,253,245,.78) 0 4%,transparent 4.7%),
+    radial-gradient(ellipse at 50% 25%,rgba(255,253,245,.62) 0 2.2%,transparent 3%),
+    linear-gradient(#f5f0e4 0%,#e8e8dc 45%,#c9d4cc 100%);
+  box-shadow:0 28px 70px rgba(37,63,54,.16);
+  overflow:hidden
+}
+.hero-v2-visual:before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:7%;
+  width:115px;
+  height:116%;
+  border-left:34px solid rgba(255,252,240,.86);
+  border-radius:50%;
+  transform:translateX(-42%) rotate(8deg);
+  filter:drop-shadow(0 0 18px rgba(255,252,240,.7));
+  z-index:1
+}
+.hero-v2-visual:after{
+  content:"두 사람의 첫길, 좋은 온길";
+  position:absolute;
+  z-index:3;
+  left:28px;
+  right:28px;
+  bottom:27px;
+  padding:15px 18px;
+  border-radius:999px;
+  color:#fff;
+  background:rgba(18,73,61,.93);
+  box-shadow:0 12px 30px rgba(18,73,61,.2);
+  text-align:center;
+  font-size:14px;
+  font-weight:800
+}
+.hero-v2-top,.hero-v2-main-card,.hero-v2-mini-grid{display:none}
+@media(max-width:1000px){
+  .hero-v2-visual{min-height:520px;max-width:680px;width:100%}
+}
+@media(max-width:700px){
+  .hero.hero-v2{background:radial-gradient(circle at 96% 2%,rgba(182,203,194,.6) 0 75px,transparent 76px),#f5f0e4}
+  .hero-v2 h1{font-size:41px}
+  .hero-v2-visual{min-height:420px;border-radius:25px}
+  .hero-v2-visual:after{left:17px;right:17px;bottom:17px;font-size:12px}
+}
