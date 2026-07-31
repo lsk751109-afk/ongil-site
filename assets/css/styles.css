@@ -1118,3 +1118,27 @@ body{
 
 /* Hero artwork action V10 */
 .hero-v2-visual:after{display:none;content:none}
+
+
+/* Main brush-calligraphy title V11 */
+.hero-v2 h1{
+  font-family:"Nanum Brush Script","Nanum Pen Script","Noto Serif KR",cursive;
+  font-size:clamp(62px,6.6vw,96px);
+  font-weight:400;
+  line-height:1.02;
+  letter-spacing:.015em;
+  opacity:.9;
+  filter:blur(.18px);
+  text-shadow:
+    0 1px 1px rgba(20,44,37,.2),
+    1px 0 2px rgba(20,44,37,.08),
+    -1px 0 2px rgba(20,44,37,.06)
+}
+.hero-v2 h1 span{
+  margin-top:5px;
+  font-family:inherit;
+  font-weight:400
+}
+@media(max-width:700px){
+  .hero-v2 h1{font-size:56px;line-height:1.04}
+}
