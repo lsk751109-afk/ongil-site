@@ -3,3 +3,36 @@
 .ambient-music-toggle{display:inline-flex;align-items:center;gap:7px;min-height:34px;padding:0 12px;border:0;border-radius:999px;background:#6c5ce7;color:#fff;font-size:12px;font-weight:900;cursor:pointer}.ambient-music-toggle[aria-pressed="true"]{background:#2f2850}.ambient-music-toggle span{font-size:15px}.ambient-volume-wrap{display:flex;align-items:center;gap:6px}.ambient-volume-wrap label{font-size:10px;color:#756e83;font-weight:800}.ambient-volume{width:86px;accent-color:#6c5ce7}.ambient-volume-value{min-width:28px;color:#6c5ce7;font-size:10px;font-weight:900;text-align:right}
 @media(max-width:700px){.ambient-music-control{left:auto;top:auto;right:auto;bottom:auto;margin:20px 0;gap:6px;padding:7px 8px}.ambient-volume-wrap label{display:none}.ambient-volume{width:62px}.ambient-music-toggle{padding:0 10px}.ambient-music-toggle b{display:none}}
 @media print{.ambient-music-control{display:none!important}}
+
+
+/* Fortune song control on hero artwork */
+.hero-v2-visual .ambient-music-control{
+  position:absolute;
+  z-index:5;
+  left:50%;
+  right:auto;
+  top:auto;
+  bottom:28px;
+  width:max-content;
+  max-width:calc(100% - 44px);
+  margin:0;
+  transform:translateX(-50%);
+  border-color:rgba(18,73,61,.16);
+  background:rgba(255,255,255,.94);
+  box-shadow:0 14px 34px rgba(18,73,61,.2)
+}
+.hero-v2-visual .ambient-music-toggle{background:#12493d}
+.hero-v2-visual .ambient-music-toggle[aria-pressed="true"]{background:#8e3f30}
+.hero-v2-visual .ambient-volume{accent-color:#12493d}
+.hero-v2-visual .ambient-volume-value{color:#12493d}
+@media(max-width:700px){
+  .hero-v2-visual .ambient-music-control{
+    left:50%;
+    right:auto;
+    top:auto;
+    bottom:16px;
+    margin:0;
+    transform:translateX(-50%)
+  }
+  .hero-v2-visual .ambient-music-toggle b{display:inline}
+}
