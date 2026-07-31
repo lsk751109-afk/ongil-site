@@ -15,8 +15,7 @@
 .face-ai-chip b{display:block;margin-bottom:3px;color:#f1d99a;font-size:11px}
 .face-ai-privacy{margin:12px 0 0;padding:12px 14px;border-left:3px solid #d8b76a;background:rgba(216,183,106,.045);color:#aaa2bb;font-size:12px;line-height:1.7}
 .face-ai-privacy strong{color:#f1d99a}
-#faceForm.ai-ready .face-manual-field{display:none}
-#faceForm .face-manual-note{display:none}
+#faceForm .face-manual-field,#faceForm .face-manual-note{display:none}
 .face-ai-result-head{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:15px;padding:17px;border:1px solid rgba(216,183,106,.2);border-radius:16px;background:linear-gradient(145deg,rgba(111,76,255,.12),rgba(216,183,106,.045))}
 .face-ai-result-head strong{font-size:20px;color:#f1d99a}
 .face-ai-result-head small{display:block;margin-top:4px;color:#aaa2bb}
