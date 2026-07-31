@@ -24,6 +24,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Build Ongil theme
+        run: python scripts/build_theme.py
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
