@@ -30,8 +30,13 @@ jobs:
       - name: Build mobile AI face reading
         run: python scripts/build_face_ai.py
 
+      - name: Build visual tarot cards
+        run: python scripts/build_tarot_cards.py
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - name: Upload static site
         uses: actions/upload-pages-artifact@v4
