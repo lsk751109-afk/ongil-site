@@ -32,7 +32,6 @@ function initMusic(){
   audio.loop=true;
   audio.preload='none';
   audio.volume=initialVolume;
-  audio.crossOrigin='anonymous';
   document.body.appendChild(audio);
 
   const control=document.createElement('div');
