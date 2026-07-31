@@ -39,6 +39,9 @@ jobs:
       - name: Build visual tarot cards
         run: python scripts/build_tarot_cards.py
 
+      - name: Build daily lotto recommendation
+        run: python scripts/build_lotto.py
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
         with:
