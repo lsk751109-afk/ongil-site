@@ -103,7 +103,7 @@ function initMusic(){
 
   const css=document.createElement('link');
   css.rel='stylesheet';
-  css.href='assets/css/ambient-music.css?v=20260801-upper-left';
+  css.href='assets/css/ambient-music.css?v=20260801-inline-volume-v9';
   document.head.appendChild(css);
 
   const saved=Number(localStorage.getItem(VOLUME_KEY));
@@ -129,7 +129,13 @@ function initMusic(){
       <input class="ambient-volume" id="ongilAmbientVolume" type="range" min="0" max="50" step="1" value="${Math.round(initialVolume*100)}">
       <span class="ambient-volume-value">${Math.round(initialVolume*100)}%</span>
     </div>`;
-  document.body.appendChild(control);
+  const heroTrust=document.querySelector('.hero-v2-trust');
+  const heroCopy=document.querySelector('.hero-v2-copy');
+  if(heroTrust&&heroCopy){
+    heroCopy.insertBefore(control,heroTrust);
+  }else{
+    document.body.appendChild(control);
+  }
 
   const toggle=control.querySelector('.ambient-music-toggle');
   const label=toggle.querySelector('b');
