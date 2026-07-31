@@ -88,6 +88,16 @@ function rebuildHome(){
   });
 }
 
+function initQuickServices(){
+  const buttons=[...document.querySelectorAll('[data-quick-service]')];
+  buttons.forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      buttons.forEach(item=>item.classList.toggle('active',item===btn));
+      activateService(btn.dataset.quickService);
+    });
+  });
+}
+
 function initMusic(){
   if(document.getElementById('ongilAmbientMusic')) return;
 
@@ -153,6 +163,7 @@ function initMusic(){
 loadCore()
   .catch(error=>console.error(error))
   .finally(()=>{
+    initQuickServices();
     initMusic();
   });
 })();
