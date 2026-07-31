@@ -1,0 +1,24 @@
+/* ONGIL extended services: compatibility, tarot, mobile face reading */
+.service-card .service-badge{position:absolute;right:14px;top:14px;border:1px solid rgba(216,183,106,.3);border-radius:999px;padding:4px 8px;font-size:9px;color:#f1d99a;background:rgba(216,183,106,.08)}
+.compatibility-score{display:grid;grid-template-columns:160px 1fr;gap:20px;align-items:center;margin-bottom:18px;padding:22px;border:1px solid rgba(216,183,106,.18);border-radius:18px;background:linear-gradient(145deg,rgba(111,76,255,.12),rgba(255,255,255,.015))}
+.score-ring{display:grid;place-items:center;width:132px;height:132px;border-radius:50%;margin:auto;background:conic-gradient(#d8b76a var(--score),rgba(255,255,255,.07) 0);position:relative}
+.score-ring::before{content:"";position:absolute;inset:10px;border-radius:50%;background:#120d20}
+.score-ring strong,.score-ring small{position:relative;z-index:1}.score-ring strong{font-size:35px;color:#f1d99a}.score-ring small{display:block;color:#aaa2bb;font-size:11px;margin-top:-28px}
+.compatibility-copy h4{margin:0 0 8px;color:#f5f1fb;font-size:21px}.compatibility-copy p{margin:0;color:#aaa2bb;line-height:1.75}
+.intimacy-card{border-color:rgba(216,183,106,.32)!important;background:linear-gradient(145deg,rgba(216,183,106,.06),rgba(111,76,255,.06))!important}.intimacy-card h4::before{content:"✦";color:#d8b76a;margin-right:7px}
+.consent-note{margin:16px 0 0;padding:13px 15px;border-left:3px solid #d8b76a;background:rgba(216,183,106,.055);color:#aaa2bb;font-size:12px;line-height:1.7}
+.checkbox-label{display:flex!important;flex-direction:row!important;align-items:flex-start;gap:9px!important;padding:13px 15px;border:1px solid rgba(216,183,106,.18);border-radius:12px;background:rgba(216,183,106,.035)}
+.checkbox-label input{width:auto!important;margin-top:3px}.checkbox-label span{line-height:1.55}
+.tarot-draw{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:5px 0 18px}.tarot-card{min-height:245px;padding:20px;border:1px solid rgba(216,183,106,.24);border-radius:18px;background:radial-gradient(circle at 50% 22%,rgba(111,76,255,.28),transparent 32%),linear-gradient(160deg,#211638,#0d0917);display:flex;flex-direction:column;justify-content:space-between;text-align:center;box-shadow:0 18px 45px rgba(0,0,0,.22)}
+.tarot-card .tarot-symbol{font-size:55px;color:#f1d99a;text-shadow:0 0 22px rgba(216,183,106,.25)}.tarot-card small{color:#aaa2bb}.tarot-card strong{font-size:18px;color:#f5f1fb}.tarot-card p{margin:8px 0 0;color:#aaa2bb;font-size:12px;line-height:1.65}
+.mobile-only-service,.mobile-only-tab{display:none!important}.mobile-only-panel{display:none!important}
+.face-camera-box{display:grid;gap:12px;padding:17px;border:1px solid rgba(216,183,106,.2);border-radius:16px;background:rgba(255,255,255,.018)}
+.face-camera-box input[type=file]{width:100%;padding:12px;border:1px dashed rgba(216,183,106,.35);border-radius:12px;background:#0e0a18;color:#aaa2bb}
+.face-preview{display:none;position:relative;overflow:hidden;aspect-ratio:3/4;border-radius:15px;background:#090611;border:1px solid rgba(182,162,255,.15)}.face-preview.show{display:block}.face-preview img{width:100%;height:100%;object-fit:cover}.face-guide{position:absolute;inset:10% 15%;border:2px solid rgba(241,217,154,.75);border-radius:48% 48% 44% 44%;box-shadow:0 0 0 999px rgba(0,0,0,.16)}
+.face-local-note{margin:0;color:#aaa2bb;font-size:11px;line-height:1.65}.face-local-note b{color:#f1d99a}
+@media(max-width:700px){
+  .mobile-only-service{display:block!important}.mobile-only-tab{display:inline-flex!important}.mobile-only-panel.active{display:block!important}
+  .compatibility-score{grid-template-columns:1fr;text-align:center}.compatibility-copy h4{font-size:19px}
+  .tarot-draw{grid-template-columns:1fr}.tarot-card{min-height:210px}
+  .service-grid{grid-template-columns:1fr 1fr}.service-card:last-child{grid-column:auto}
+}
