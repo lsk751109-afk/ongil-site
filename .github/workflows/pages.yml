@@ -27,6 +27,9 @@ jobs:
       - name: Build Ongil theme
         run: python scripts/build_theme.py
 
+      - name: Remove memorial rite from date selection
+        run: python scripts/build_date_options.py
+
       - name: Build mobile AI face reading
         run: python scripts/build_face_ai.py
 
