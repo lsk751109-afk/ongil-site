@@ -27,6 +27,9 @@ jobs:
       - name: Build Ongil theme
         run: python scripts/build_theme.py
 
+      - name: Build original Ongil main landing
+        run: python scripts/build_main_landing.py
+
       - name: Remove memorial rite from date selection
         run: python scripts/build_date_options.py
 
