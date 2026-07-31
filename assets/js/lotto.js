@@ -21,6 +21,11 @@ function updateDateChip(){if(dateChip&&dateInput?.value)dateChip.textContent=for
 if(dateInput&&!dateInput.value)dateInput.value=seoulDateString();
 updateDateChip();
 dateInput?.addEventListener('change',()=>{variation=0;updateDateChip();});
+form.addEventListener('reset',()=>setTimeout(()=>{
+  variation=0;
+  if(dateInput)dateInput.value=seoulDateString();
+  updateDateChip();
+},0));
 
 function hash(text){
   let value=2166136261;
