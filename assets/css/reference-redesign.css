@@ -112,3 +112,17 @@ linear-gradient(110deg,rgba(222,202,169,.18),transparent 38%,rgba(224,199,159,.1
 .site-header,.hero-v2-visual{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
 .service-card,.guide-cards article{transition:none!important}
 @media(max-width:1000px){.services .section-head{flex-wrap:wrap!important}.services .section-head p{white-space:normal!important;text-align:left!important}}
+
+/* Light-theme contrast audit — lotto panel and generated results */
+.service-panel[data-panel="lotto"] .lotto-panel-intro strong{color:#3f2a1e!important}
+.service-panel[data-panel="lotto"] .lotto-panel-intro p{color:#6f6258!important}
+.service-panel[data-panel="lotto"] .lotto-date-chip{color:#9a651c!important;background:#fff8e8!important;border-color:#d8b76a!important}
+.service-panel[data-panel="lotto"] .lotto-help{color:#6f6258!important}
+.service-panel[data-panel="lotto"] .lotto-set{background:#fffdf9!important;border-color:#e2d5c6!important}
+.service-panel[data-panel="lotto"] .lotto-set-label{color:#8d5b1d!important;border-color:#e2d5c6!important}
+.service-panel[data-panel="lotto"] .lotto-balance strong{color:#3f2a1e!important}
+.service-panel[data-panel="lotto"] .lotto-balance small{color:#6f6258!important}
+.service-panel[data-panel="lotto"] .lotto-summary-card{background:#fffaf0!important;border-color:#e4cfaa!important}
+.service-panel[data-panel="lotto"] .lotto-summary-card h4{color:#7f5014!important}
+.service-panel[data-panel="lotto"] .lotto-summary-card p,
+.service-panel[data-panel="lotto"] .lotto-warning{color:#62564d!important}
