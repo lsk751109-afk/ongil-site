@@ -2,7 +2,7 @@
 'use strict';
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const STORAGE_KEY='ongil_archive_v1';
-const typeLabels={fortune:'운세',naming:'작명·개명',analysis:'이름풀이',date:'좋은 날 택일',jibang:'제사지방',chukmun:'축문',compatibility:'궁합',tarot:'타로',lotto:'오늘의 로또',dream:'꿈해몽'};
+const typeLabels={fortune:'운세',annual:'신년운세',naming:'작명·개명',analysis:'이름풀이',date:'좋은 날 택일',jibang:'제사지방',chukmun:'축문',compatibility:'궁합',tarot:'타로',lotto:'오늘의 로또',dream:'꿈해몽'};
 let currentResult=null;
 
 const syllables={
@@ -25,6 +25,7 @@ function formatDateTime(iso){return new Intl.DateTimeFormat('ko-KR',{dateStyle:'
 function serviceSwitch(type,scroll=true){const panel=$(`[data-panel="${type}"]`);if(!panel){toast('해당 서비스 화면을 준비 중입니다.');return}$$('[data-service]').forEach(x=>x.classList.toggle('active',x.dataset.service===type));$$('[data-panel]').forEach(x=>x.classList.toggle('active',x.dataset.panel===type));if(scroll)$('#workspace')?.scrollIntoView({behavior:'smooth',block:'start'});}
 const reportProfiles={
  fortune:{basis:'생년월일·오늘 날짜·관심 분야',areas:'총운, 재물, 사업·직장, 관계, 생활 리듬',strength:'우선순위를 좁히고 작은 결과를 완성하는 힘',risk:'점수만 믿고 소비·계약·건강 문제를 성급히 판단하는 태도',action:'오전 핵심과제 1개, 오후 지출·진행 점검, 저녁 미완료 일정 정리',limit:'미래의 확률이나 사건을 예언하는 결과가 아닙니다.'},
+ annual:{basis:'성명·생년월일·출생시간·성별·풀이 연도·중점 분야',areas:'연간 총운, 재물, 사업·직장, 애정·가족, 건강·생활, 12개월 흐름',strength:'한 해의 목표를 분기와 월별 행동으로 나누어 꾸준히 점검하는 힘',risk:'좋은 달과 나쁜 달을 확정된 사건처럼 받아들여 현실 자료를 무시하는 태도',action:'연간 목표 2개를 정하고 매월 실제 결과와 지출·관계·생활 리듬을 기록',limit:'신년운세는 자기성찰용 참고자료이며 수익·건강·미래 사건을 보장하지 않습니다.'},
  naming:{basis:'성씨·출생정보·이름 길이·성별 인상·포함 및 제외 글자',areas:'호명감, 음절 조화, 의미, 사회적 사용성, 신고 가능성',strength:'가족이 담고 싶은 가치를 자연스럽고 오래 부를 수 있는 이름으로 표현하는 것',risk:'한글 음절만 보고 사용할 한자와 신고 가능 여부를 확인하지 않는 것',action:'후보 3개 호명 테스트, 영문 표기·동명이인·놀림 가능성 확인, 인명용 한자 검토',limit:'후보 점수는 요청 조건과의 조화도이며 사람의 운명이나 우열이 아닙니다.'},
  analysis:{basis:'성명·생년월일·발음 흐름·글자의 대표 의미',areas:'기본 인상, 성향, 사업, 재물, 가족, 건강·생활',strength:'이름의 긍정적 의미를 실제 습관과 선택 기준으로 연결하는 것',risk:'풀이를 건강 진단이나 투자·관계의 확정 근거로 사용하는 것',action:'강점 1개와 보완점 1개를 정해 목표·지출·대화·생활 기록을 90일간 점검',limit:'한자가 입력되지 않은 경우 한글 음절의 일반적 이미지까지만 해석합니다.'},
  tarot:{basis:'질문·주제·배열 위치·카드 상징·정방향과 역방향',areas:'현재 상황, 방해 요인, 감정과 사실, 선택지, 앞으로의 태도',strength:'말로 설명하기 어려운 고민을 구조화하고 선택 기준을 정리하는 것',risk:'원하는 답이 나올 때까지 반복하거나 카드로 타인의 마음을 단정하는 것',action:'공감되는 문장 1개, 확인할 사실 1개, 48시간 안에 실행할 행동 1개 기록',limit:'건강·법률·계약·투자는 카드보다 실제 자료와 전문가 판단이 우선입니다.'},
