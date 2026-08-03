@@ -6,6 +6,7 @@
   const CONFIG_SRC = 'assets/js/payment-config.js?v=20260803-one-use-v1';
 
   const serviceLabels = {
+    annual: '신년운세',
     naming: '작명·개명',
     date: '좋은 날 택일',
     jibang: '제사지방',
@@ -15,6 +16,7 @@
   };
 
   const formServices = {
+    annualFortuneForm: 'annual',
     namingForm: 'naming',
     dateForm: 'date',
     jibangForm: 'jibang',
