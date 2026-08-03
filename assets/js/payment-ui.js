@@ -6,6 +6,7 @@
   const ACCESS_KEY = 'ongil_paid_access_v1';
 
   const services = [
+    ['annual', '2027 신년운세 · 5,000원', 'annual'],
     ['naming', '작명·개명', 'naming'],
     ['date', '좋은 날 택일', 'date'],
     ['jibang', '제사지방', 'jibang'],
@@ -162,13 +163,14 @@
     const emailInput = section.querySelector('#paymentCustomerEmail');
 
     const selectedIds = () => checkboxes.filter(input => input.checked).map(input => input.value);
+    const amountFor = ids => ids.includes('annual') ? 5000 : (config.priceTiers[ids.length] || 0);
     const labelsFor = ids => ids.map(id => services.find(item => item[0] === id)?.[1] || id);
     const backendIdsFor = ids => ids.map(id => services.find(item => item[0] === id)?.[2] || id);
 
     function refresh() {
       const ids = selectedIds();
       const count = ids.length;
-      const amount = config.priceTiers[count] || 0;
+      const amount = amountFor(ids);
       countEl.textContent = `${count}개`;
       selectedEl.textContent = count ? labelsFor(ids).join(' · ') : '서비스를 1개 이상 선택해 주세요.';
       totalEl.textContent = won(amount);
@@ -177,6 +179,12 @@
     }
 
     checkboxes.forEach(input => input.addEventListener('change', event => {
+      if (event.currentTarget.value === 'annual' && event.currentTarget.checked) {
+        checkboxes.forEach(other => { if (other !== event.currentTarget) other.checked = false; });
+      } else if (event.currentTarget.checked) {
+        const annual = checkboxes.find(other => other.value === 'annual');
+        if (annual) annual.checked = false;
+      }
       if (selectedIds().length > config.maxQuantity) {
         event.currentTarget.checked = false;
         toast(`서비스는 최대 ${config.maxQuantity}개까지 선택할 수 있습니다.`);
@@ -192,7 +200,7 @@
     button.addEventListener('click', async () => {
       const ids = selectedIds();
       const count = ids.length;
-      const displayAmount = Number(config.priceTiers[count] || 0);
+      const displayAmount = Number(amountFor(ids));
       const customerName = nameInput.value.trim();
       const phoneNumber = normalizePhone(phoneInput.value);
       const email = emailInput.value.trim();
