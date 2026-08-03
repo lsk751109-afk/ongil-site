@@ -6,6 +6,11 @@
   const ACCESS_KEY = 'ongil_paid_access_v1';
 
   const services = [
+    ['fortune', '운세 상세풀이', 'fortune'],
+    ['analysis', '이름 상세풀이', 'analysis'],
+    ['tarot', '타로 심층해석', 'tarot'],
+    ['lotto', '로또 20세트', 'lotto'],
+    ['dream', '꿈해몽 상세풀이', 'face'],
     ['annual', '2027 신년운세 · 5,000원', 'annual'],
     ['lifetime', '정통사주·평생운세', 'lifetime'],
     ['wealth', '재물·사업운', 'wealth'],
@@ -14,8 +19,7 @@
     ['date', '좋은 날 택일', 'date'],
     ['jibang', '제사지방', 'jibang'],
     ['chukmun', '축문', 'chukmun'],
-    ['compatibility', '궁합', 'compatibility'],
-    ['dream', '꿈해몽', 'face']
+    ['compatibility', '궁합', 'compatibility']
   ];
 
   const won = value => new Intl.NumberFormat('ko-KR').format(Number(value || 0)) + '원';
@@ -54,6 +58,7 @@
       .payment-title h2{margin:0 0 10px;color:#173f35;font-size:clamp(28px,4vw,44px)}
       .payment-title>p{margin:0 0 22px;color:#59635f;line-height:1.7}
       .payment-service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+      .payment-groups{display:grid;gap:20px}.payment-group{background:rgba(255,255,255,.42);border:1px solid rgba(23,63,53,.1);border-radius:18px;padding:16px}.payment-group-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}.payment-group-head strong{color:#173f35;font-size:16px}.payment-group-head small{color:#7b7062}.payment-group .payment-service-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
       .payment-service{display:flex;align-items:center;gap:10px;padding:14px 15px;background:#fff;border:1px solid rgba(23,63,53,.16);border-radius:14px;cursor:pointer;transition:.18s ease;font-weight:700;color:#25473e}
       .payment-service:hover{border-color:#8d6e42;transform:translateY(-1px)}
       .payment-service:has(input:checked){background:#173f35;color:#fff;border-color:#173f35;box-shadow:0 10px 24px rgba(23,63,53,.16)}
@@ -74,7 +79,7 @@
       .payment-button:disabled{opacity:.45;cursor:not-allowed}
       .payment-status{margin:12px 0 0;font-size:12px;line-height:1.55;color:#c9d4d0}
       @media(max-width:900px){.ongil-payment .payment-wrap{grid-template-columns:1fr}.payment-summary{position:static}.payment-service-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-      @media(max-width:520px){.payment-service-grid{grid-template-columns:1fr}.payment-summary{padding:20px}}
+      @media(max-width:520px){.payment-service-grid,.payment-group .payment-service-grid{grid-template-columns:1fr}.payment-summary{padding:20px}.payment-group-head{align-items:flex-start;flex-direction:column}}
     `;
     document.head.appendChild(style);
   }
@@ -90,8 +95,13 @@
           <small>ONGIL SERVICE PASS</small>
           <h2>필요한 서비스만 선택하세요</h2>
           <p>최대 5개까지 선택할 수 있으며 선택 개수에 따라 이용권 금액이 자동 계산됩니다.</p>
-          <div class="payment-service-grid" id="paymentServiceGrid">
-            ${services.map(([id, label]) => `<label class="payment-service"><input type="checkbox" value="${id}"><span>${label}</span></label>`).join('')}
+          <div class="payment-groups" id="paymentServiceGrid">
+            <div class="payment-group"><div class="payment-group-head"><strong>무료 서비스 상세 이용</strong><small>기본은 무료 · 상세만 결제</small></div><div class="payment-service-grid">
+              ${services.slice(0,5).map(([id, label]) => `<label class="payment-service"><input type="checkbox" value="${id}"><span>${label}</span></label>`).join('')}
+            </div></div>
+            <div class="payment-group"><div class="payment-group-head"><strong>전문 유료 서비스</strong><small>필요한 서비스만 선택</small></div><div class="payment-service-grid">
+              ${services.slice(5).map(([id, label]) => `<label class="payment-service"><input type="checkbox" value="${id}"><span>${label}</span></label>`).join('')}
+            </div></div>
           </div>
           <div class="payment-tier-list">
             ${Object.entries(config.priceTiers).map(([count, price]) => `<span>${count}개 ${won(price)}</span>`).join('')}
