@@ -81,6 +81,13 @@ linear-gradient(110deg,rgba(222,202,169,.18),transparent 38%,rgba(224,199,159,.1
 .footer-brand{align-items:center}
 @media(max-width:700px){.brand-logo-image{width:49px;height:47px}.footer-logo-image{width:62px;height:58px}}
 
+/* Ten-service audited layout */
+.service-head-one-line{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:28px!important;flex-wrap:nowrap!important}
+.service-head-one-line h2,.service-head-one-line>p{white-space:nowrap!important}
+.workspace-tabs{display:flex;overflow-x:auto;scrollbar-width:thin}
+.workspace-tabs button{flex:0 0 auto}
+@media(max-width:1100px){.service-head-one-line{align-items:flex-start!important;flex-direction:column!important}.service-head-one-line h2,.service-head-one-line>p{white-space:normal!important}}
+
 /* Footer visibility restoration */
 @media screen{
 .site-footer{display:block!important;visibility:visible!important;opacity:1!important;padding:52px 0 20px!important;background:#3f291d!important;color:#f6eadb!important;border-top:1px solid #bd8752!important}
