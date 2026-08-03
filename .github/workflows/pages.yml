@@ -24,20 +24,23 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Build Ongil theme and service panels
-        run: python scripts/build_theme.py
+      - name: Validate JavaScript
+        run: |
+          for file in assets/js/*.js; do
+            node --check "$file"
+          done
 
-      - name: Remove memorial rite from date selection
-        run: python scripts/build_date_options.py
-
-      - name: Build mobile AI face reading
-        run: python scripts/build_face_ai.py
-
-      - name: Build visual tarot cards
-        run: python scripts/build_tarot_cards.py
-
-      - name: Build daily lotto recommendation
-        run: python scripts/build_lotto.py
+      - name: Validate ten service panels
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          html = Path('index.html').read_text(encoding='utf-8')
+          services = ['fortune','analysis','lotto','tarot','date','naming','compatibility','dream','jibang','chukmun']
+          for service in services:
+              assert html.count(f'data-panel="{service}"') == 1, f'{service} panel must exist exactly once'
+              assert f'data-service="{service}"' in html, f'{service} button missing'
+          assert 'data-panel="face"' not in html, 'unexpected face panel'
+          PY
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
