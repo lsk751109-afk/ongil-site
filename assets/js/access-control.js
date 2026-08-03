@@ -7,12 +7,10 @@
 
   const serviceLabels = {
     naming: '작명·개명',
-    analysis: '이름풀이',
     date: '좋은 날 택일',
     jibang: '제사지방',
     chukmun: '축문',
     compatibility: '궁합',
-    tarot: '타로',
     dream: '꿈해몽'
   };
 
