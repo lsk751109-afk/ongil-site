@@ -85,8 +85,8 @@
     <section class="section services" id="services">
       <div class="shell">
         <div class="section-head service-head-one-line">
-          <div><p class="section-no">01 · SERVICES</p><h2>필요한 순간에 선택하는 온길의 열한 가지 서비스</h2></div>
-          <p>무료 4개, 유료 7개 서비스를 선택해 바로 이용할 수 있습니다.</p>
+          <div><p class="section-no">01 · SERVICES</p><h2>필요한 순간에 선택하는 온길의 열네 가지 서비스</h2></div>
+          <p>무료 4개, 유료 10개 서비스를 선택해 바로 이용할 수 있습니다.</p>
         </div>
         <div class="service-grid">
           <button class="service-card" type="button" data-service="fortune" data-tier="free"><span>01</span><i>運</i><h3>운세</h3><p>오늘의 흐름과 생활운을 편안하게 살펴봅니다.</p><b class="service-price">무료</b></button>
@@ -100,6 +100,9 @@
           <button class="service-card" type="button" data-service="dream"><span>08</span><i>夢</i><h3>꿈해몽</h3><p>기억에 남은 꿈의 상징과 의미를 풀이합니다.</p><b class="service-price">유료</b></button>
           <button class="service-card" type="button" data-service="jibang"><span>09</span><i>紙</i><h3>제사지방</h3><p>정성을 담아 고인을 기리는 지방을 작성합니다.</p><b class="service-price">유료</b></button>
           <button class="service-card" type="button" data-service="chukmun"><span>10</span><i>祝</i><h3>축문</h3><p>제례의 뜻을 담은 정성스러운 축문을 작성합니다.</p><b class="service-price">유료</b></button>
+          <button class="service-card" type="button" data-service="lifetime"><span>12</span><i>命</i><h3>정통사주·평생운세</h3><p>삶의 큰 흐름과 시기별 과제를 종합합니다.</p><b class="service-price">유료</b></button>
+          <button class="service-card" type="button" data-service="wealth"><span>13</span><i>財</i><h3>재물·사업운</h3><p>현금흐름과 일의 방향을 상세히 점검합니다.</p><b class="service-price">유료</b></button>
+          <button class="service-card" type="button" data-service="child"><span>14</span><i>子</i><h3>태몽·자녀운</h3><p>꿈의 상징과 자녀 관계·성장 방향을 살핍니다.</p><b class="service-price">유료</b></button>
         </div>
       </div>
     </section>
@@ -116,7 +119,7 @@
 
         <div class="workspace-main">
           <div class="workspace-tabs" role="tablist" aria-label="작성 서비스">
-            <button type="button" data-service="fortune">운세</button><button type="button" data-service="annual">2027 신년운세</button><button type="button" data-service="analysis">이름풀이</button><button type="button" data-service="lotto">오늘의 로또</button><button type="button" data-service="tarot">타로</button><button type="button" data-service="date">좋은 날 택일</button><button class="active" type="button" data-service="naming">작명·개명</button><button type="button" data-service="compatibility">궁합</button><button type="button" data-service="dream">꿈해몽</button><button type="button" data-service="jibang">제사지방</button><button type="button" data-service="chukmun">축문</button>
+            <button type="button" data-service="fortune">운세</button><button type="button" data-service="annual">2027 신년운세</button><button type="button" data-service="lifetime">정통사주·평생운세</button><button type="button" data-service="wealth">재물·사업운</button><button type="button" data-service="child">태몽·자녀운</button><button type="button" data-service="analysis">이름풀이</button><button type="button" data-service="lotto">오늘의 로또</button><button type="button" data-service="tarot">타로</button><button type="button" data-service="date">좋은 날 택일</button><button class="active" type="button" data-service="naming">작명·개명</button><button type="button" data-service="compatibility">궁합</button><button type="button" data-service="dream">꿈해몽</button><button type="button" data-service="jibang">제사지방</button><button type="button" data-service="chukmun">축문</button>
           </div>
 
           <section class="service-panel" id="panel-fortune" data-panel="fortune">
@@ -142,6 +145,36 @@
               <label><span>성별</span><select name="gender"><option value="미입력">선택 안 함</option><option value="남">남</option><option value="여">여</option></select></label>
               <label><span>중점 분야</span><select name="focus"><option>전체 흐름</option><option>재물과 사업</option><option>직장과 성취</option><option>애정과 가족</option><option>건강과 생활</option></select></label>
               <div class="form-actions span-2"><button class="button primary" type="submit">2027 신년운세 상세풀이</button><button class="button text" type="reset">입력 초기화</button></div>
+            </form>
+          </section>
+
+          <section class="service-panel" id="panel-lifetime" data-panel="lifetime">
+            <div class="panel-head"><div><small>LIFETIME SAJU REPORT</small><h3>정통사주·평생운세</h3></div><span class="panel-badge">유료 · 이용권</span></div>
+            <form id="lifetimeForm" class="form-grid">
+              <label><span>성명</span><input name="fullName" maxlength="10" required></label><label><span>생년월일</span><input name="birthDate" type="date" required></label>
+              <label><span>태어난 시각</span><input name="birthTime" type="time"><small>모르면 비워둘 수 있습니다.</small></label><label><span>출생 지역</span><input name="birthPlace" maxlength="20" placeholder="예: 서울"></label>
+              <label><span>성별</span><select name="gender"><option>선택 안 함</option><option>남</option><option>여</option></select></label><label><span>중점 분야</span><select name="focus"><option>평생의 큰 흐름</option><option>직업과 성취</option><option>재물과 사업</option><option>관계와 가족</option><option>건강과 생활</option></select></label>
+              <div class="form-actions span-2"><button class="button primary" type="submit">평생운세 상세풀이</button><button class="button text" type="reset">입력 초기화</button></div>
+            </form>
+          </section>
+
+          <section class="service-panel" id="panel-wealth" data-panel="wealth">
+            <div class="panel-head"><div><small>WEALTH & BUSINESS REPORT</small><h3>재물·사업운 상세풀이</h3></div><span class="panel-badge">유료 · 이용권</span></div>
+            <form id="wealthForm" class="form-grid">
+              <label><span>성명</span><input name="fullName" maxlength="10" required></label><label><span>생년월일</span><input name="birthDate" type="date" required></label>
+              <label><span>현재 상태</span><select name="status"><option>직장인</option><option>사업 운영 중</option><option>창업 준비 중</option><option>프리랜서</option><option>구직·전환 준비</option></select></label><label><span>관심 기간</span><select name="period"><option>앞으로 1년</option><option>앞으로 3년</option><option>장기 흐름</option></select></label>
+              <label class="span-2"><span>현재 고민</span><textarea name="question" rows="4" maxlength="300" placeholder="수입, 지출, 이직, 창업, 동업 등 확인하고 싶은 내용을 적어주세요."></textarea></label>
+              <div class="form-actions span-2"><button class="button primary" type="submit">재물·사업운 상세풀이</button><button class="button text" type="reset">입력 초기화</button></div>
+            </form>
+          </section>
+
+          <section class="service-panel" id="panel-child" data-panel="child">
+            <div class="panel-head"><div><small>TAEMONG & CHILD REPORT</small><h3>태몽·자녀운 상세풀이</h3></div><span class="panel-badge">유료 · 이용권</span></div>
+            <form id="childForm" class="form-grid">
+              <label><span>신청자 성명</span><input name="fullName" maxlength="10" required></label><label><span>신청자 생년월일</span><input name="birthDate" type="date" required></label>
+              <label><span>풀이 유형</span><select name="mode"><option>태몽 해석</option><option>자녀 관계와 성장</option><option>종합 풀이</option></select></label><label><span>관심 분야</span><select name="focus"><option>전체 흐름</option><option>관계와 소통</option><option>성장과 교육</option><option>재능과 진로</option></select></label>
+              <label class="span-2"><span>태몽 또는 현재 상황</span><textarea name="story" rows="5" maxlength="500" placeholder="꿈의 인물·동물·색·장소와 느낌, 또는 자녀와의 현재 상황을 자세히 적어주세요." required></textarea></label>
+              <div class="form-actions span-2"><button class="button primary" type="submit">태몽·자녀운 상세풀이</button><button class="button text" type="reset">입력 초기화</button></div>
             </form>
           </section>
 
@@ -303,6 +336,7 @@
   <script src="assets/js/lotto.js"></script>
   <script src="assets/js/daily-fortune.js"></script>
   <script src="assets/js/annual-fortune.js?v=20260804-v1"></script>
+  <script src="assets/js/premium-fortunes.js?v=20260804-v1"></script>
   <script src="assets/js/dream.js"></script>
   <script src="assets/js/payment-ui.js?v=20260804-annual-v2"></script>
   <script src="assets/js/access-control.js?v=20260804-annual-v3"></script>
