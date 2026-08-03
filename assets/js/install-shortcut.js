@@ -23,6 +23,20 @@
 
   const toast = message => window.ONGIL?.toast(message) || window.alert(message);
   const isStandalone = () => window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+  const isIOS = () => /iPhone|iPad|iPod/i.test(navigator.userAgent || '');
+
+  function showInstallGuide() {
+    let dialog = document.querySelector('#ongilInstallGuide');
+    if (!dialog) {
+      dialog = document.createElement('dialog');
+      dialog.id = 'ongilInstallGuide';
+      dialog.innerHTML = `<div class="dialog-head"><h2>온길 홈 화면 설치</h2><button type="button" aria-label="닫기">×</button></div><div class="dialog-body"><h3>아이폰·아이패드</h3><p>Safari 하단의 공유 아이콘을 누른 뒤 <b>홈 화면에 추가</b>를 선택하고 오른쪽 위 <b>추가</b>를 누르세요.</p><h3>안드로이드</h3><p>Chrome 오른쪽 위 메뉴(⋮)에서 <b>앱 설치</b> 또는 <b>홈 화면에 추가</b>를 선택하세요.</p><h3>설치가 보이지 않을 때</h3><p>카카오톡·네이버 앱 안에서 열었다면 메뉴에서 <b>기본 브라우저로 열기</b>를 선택한 뒤 다시 시도하세요.</p></div>`;
+      document.body.appendChild(dialog);
+      dialog.querySelector('button').addEventListener('click', () => dialog.close());
+      dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+    }
+    dialog.showModal();
+  }
 
   window.addEventListener('beforeinstallprompt', event => {
     event.preventDefault();
@@ -53,13 +67,7 @@
       return;
     }
 
-    const ua = navigator.userAgent || '';
-    if (/iPhone|iPad|iPod/i.test(ua)) {
-      toast('Safari의 공유 버튼을 누른 뒤 “홈 화면에 추가”를 선택하세요.');
-      return;
-    }
-
-    toast('브라우저 주소창의 설치 아이콘을 누르거나 PC 바로가기를 다운로드하세요.');
+    showInstallGuide();
   });
 
   downloadButton?.addEventListener('click', () => {
@@ -80,4 +88,6 @@
       navigator.serviceWorker.register('/service-worker.js').catch(error => console.error('Service worker registration failed:', error));
     });
   }
+
+  if (isIOS() && installButton) installButton.textContent = '아이폰 홈 화면 설치';
 })();

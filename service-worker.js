@@ -1,9 +1,12 @@
-const CACHE_NAME = 'ongil-shell-20260804-v1';
+const CACHE_NAME = 'ongil-shell-20260804-v2';
 const CORE_ASSETS = [
   '/',
   '/site.webmanifest',
   '/assets/img/favicon.svg',
-  '/assets/js/install-shortcut.js?v=20260804-v1'
+  '/assets/img/ongil-app-icon-192.png',
+  '/assets/img/ongil-app-icon-512.png',
+  '/assets/img/ongil-apple-touch-icon.png',
+  '/assets/js/install-shortcut.js?v=20260804-v2'
 ];
 
 self.addEventListener('install', event => {
