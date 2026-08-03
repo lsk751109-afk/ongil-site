@@ -126,3 +126,16 @@ linear-gradient(110deg,rgba(222,202,169,.18),transparent 38%,rgba(224,199,159,.1
 .service-panel[data-panel="lotto"] .lotto-summary-card h4{color:#7f5014!important}
 .service-panel[data-panel="lotto"] .lotto-summary-card p,
 .service-panel[data-panel="lotto"] .lotto-warning{color:#62564d!important}
+
+/* A4 1–2 page detailed interpretation reports */
+.a4-deep-report{margin-top:28px;padding-top:24px;border-top:2px solid #dfb879}
+.deep-report-intro{margin-bottom:18px;padding:24px;border:1px solid #ead3b2;border-radius:18px;background:#fff6e8}
+.deep-report-intro small{color:#a86120;font-size:11px;font-weight:900;letter-spacing:.12em}
+.deep-report-intro h3{margin:7px 0 9px;color:#3f2a1e;font-family:"Noto Serif KR",serif;font-size:24px}
+.deep-report-intro p{margin:0;color:#67584c;line-height:1.8}
+.a4-deep-report:after{content:"A4 약 2장 분량 · 입력정보 기반 상세 보고서";display:block;margin-top:18px;padding-top:14px;border-top:1px solid #ead3b2;color:#8a7562;font-size:11px;text-align:right}
+.detailed-report .detail-card{padding:25px;background:#fffdfa!important}
+.detailed-report .detail-card h4{font-size:18px!important}
+.detailed-report .detail-card p{margin:10px 0 0!important;color:#55483f!important;font-size:14px!important;line-height:1.95!important}
+.detailed-report .detail-card p b{display:block;margin-bottom:3px;color:#9e551b}
+@media print{.a4-deep-report{break-before:auto}.detailed-report .detail-card{break-inside:avoid;box-shadow:none}.deep-report-intro{break-after:avoid}.result-zone{font-size:11pt}.detailed-report .detail-card p{font-size:10.5pt!important;line-height:1.75!important}}
