@@ -8,6 +8,15 @@
     channelKey: 'channel-key-88930f08-57d2-4a10-8322-e046a404b065',
     currency: 'CURRENCY_KRW',
     payMethod: 'CARD',
+    priceTiers: Object.freeze({
+      1: 1500,
+      2: 3000,
+      3: 4000,
+      4: 5500,
+      5: 6500
+    }),
+    minQuantity: 1,
+    maxQuantity: 5,
     apiBaseUrl: '',
     enabled: false
   });
