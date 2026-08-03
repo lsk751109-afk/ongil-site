@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="assets/css/face-ai.css">
   <link rel="stylesheet" href="assets/css/tarot-cards.css">
   <link rel="stylesheet" href="assets/css/lotto.css">
+  <link rel="stylesheet" href="assets/css/daily-fortune.css">
   <link rel="stylesheet" href="assets/css/reference-redesign.css?v=20260804-restored-v7">
   <title>온길 | 이름과 예를 잇는 생활문화 서비스</title>
 </head>
@@ -81,9 +82,9 @@
 
     <section class="section services" id="services">
       <div class="shell">
-        <div class="section-head">
-          <div><p class="section-no">01 · SERVICES</p><h2>온길의 서비스</h2></div>
-          <p>원하는 서비스를 선택하면 작성 화면으로 바로 이동합니다.</p>
+        <div class="section-head service-head-one-line">
+          <div><p class="section-no">01 · SERVICES</p><h2>필요한 순간에 선택하는 온길의 열 가지 서비스</h2></div>
+          <p>무료 4개, 유료 6개 서비스를 선택해 바로 이용할 수 있습니다.</p>
         </div>
         <div class="service-grid">
           <button class="service-card" type="button" data-service="fortune" data-tier="free"><span>01</span><i>運</i><h3>운세</h3><p>오늘의 흐름과 생활운을 편안하게 살펴봅니다.</p><b class="service-price">무료</b></button>
@@ -112,8 +113,20 @@
 
         <div class="workspace-main">
           <div class="workspace-tabs" role="tablist" aria-label="작성 서비스">
-            <button class="active" type="button" data-service="naming">작명·개명</button><button type="button" data-service="analysis">이름풀이</button><button type="button" data-service="date">택일</button><button type="button" data-service="jibang">제사지방</button><button type="button" data-service="chukmun">축문</button>
+            <button type="button" data-service="fortune">운세</button><button type="button" data-service="analysis">이름풀이</button><button type="button" data-service="lotto">오늘의 로또</button><button type="button" data-service="tarot">타로</button><button type="button" data-service="date">좋은 날 택일</button><button class="active" type="button" data-service="naming">작명·개명</button><button type="button" data-service="compatibility">궁합</button><button type="button" data-service="dream">꿈해몽</button><button type="button" data-service="jibang">제사지방</button><button type="button" data-service="chukmun">축문</button>
           </div>
+
+          <section class="service-panel" id="panel-fortune" data-panel="fortune">
+            <div class="panel-head"><div><small>FREE DAILY FORTUNE</small><h3>오늘의 운세</h3></div><span class="panel-badge">무료</span></div>
+            <div class="daily-intro"><div><strong>오늘 하루의 흐름을 간단히 살펴보세요.</strong><p>총운·재물운·사업·애정·건강과 행운 정보를 정리합니다.</p></div><span class="daily-date-chip" id="dailyDateChip">오늘 날짜</span></div>
+            <form id="dailyFortuneForm" class="form-grid">
+              <label><span>별칭</span><input name="nickname" maxlength="10" placeholder="예: 온길님"></label>
+              <label><span>생년월일</span><input name="birthDate" type="date" required></label>
+              <label><span>성별</span><select name="gender"><option value="미입력">선택 안 함</option><option value="남">남</option><option value="여">여</option></select></label>
+              <label><span>관심 분야</span><select name="focus"><option>전체 흐름</option><option>재물과 소비</option><option>사업과 직장</option><option>애정과 인연</option><option>건강과 생활</option></select></label>
+              <div class="form-actions span-2"><button class="button primary" type="submit">오늘의 운세 무료 보기</button><button class="button text" type="reset">입력 초기화</button></div>
+            </form>
+          </section>
 
           <section class="service-panel active" id="panel-naming" data-panel="naming">
             <div class="panel-head"><div><small>NAME RECOMMENDATION</small><h3>작명·개명 이름 추천</h3></div><span class="panel-badge">결과 6개</span></div>
@@ -181,6 +194,50 @@
             </form>
           </section>
 
+          <section class="service-panel" id="panel-compatibility" data-panel="compatibility">
+            <div class="panel-head"><div><small>RELATIONSHIP COMPATIBILITY</small><h3>궁합 종합풀이</h3></div><span class="panel-badge">유료 · 1회</span></div>
+            <form id="compatibilityForm" class="form-grid">
+              <label><span>첫 번째 이름</span><input name="nameA" maxlength="8" required></label><label><span>첫 번째 생년월일</span><input name="birthA" type="date" required></label>
+              <label><span>두 번째 이름</span><input name="nameB" maxlength="8" required></label><label><span>두 번째 생년월일</span><input name="birthB" type="date" required></label>
+              <label><span>관계 유형</span><select name="relationship"><option>연인</option><option>부부</option><option>사업 동반자</option><option>친구</option><option>가족</option></select></label>
+              <label><span>애정 표현</span><select name="affection"><option>말과 대화</option><option>행동과 배려</option><option>함께 보내는 시간</option></select></label>
+              <label><span>관계의 속도</span><select name="pace"><option>천천히 신뢰를 쌓는 편</option><option>자연스럽고 균형 있게</option><option>적극적으로 표현하는 편</option></select></label>
+              <label class="checkbox-label"><input type="checkbox" name="adultConfirm" value="yes" required><span>두 사람 모두 성인임을 확인합니다.</span></label>
+              <div class="form-actions span-2"><button class="button primary" type="submit">궁합 확인</button><button class="button text" type="reset">초기화</button></div>
+            </form>
+          </section>
+
+          <section class="service-panel" id="panel-dream" data-panel="dream">
+            <div class="panel-head"><div><small>DREAM INTERPRETATION</small><h3>꿈해몽</h3></div><span class="panel-badge">유료 · 1회</span></div>
+            <form id="dreamForm" class="form-grid">
+              <label><span>꿈을 꾼 날짜</span><input name="dreamDate" type="date" required></label>
+              <label><span>꿈의 느낌</span><select name="mood"><option>기쁘고 편안함</option><option>불안하고 무서움</option><option>슬프고 답답함</option><option>신기하고 선명함</option></select></label>
+              <label class="span-2"><span>기억나는 꿈 내용</span><textarea name="dreamText" rows="6" maxlength="600" placeholder="사람, 동물, 장소, 색상과 일어난 일을 자세히 적어주세요." required></textarea></label>
+              <div class="form-actions span-2"><button class="button primary" type="submit">꿈 의미 풀이하기</button><button class="button text" type="reset">초기화</button></div>
+            </form>
+          </section>
+
+          <section class="service-panel" id="panel-tarot" data-panel="tarot">
+            <div class="panel-head"><div><small>MYSTIC TAROT</small><h3>오늘의 타로</h3></div><span class="panel-badge">무료</span></div>
+            <form id="tarotForm" class="form-grid">
+              <label><span>분야</span><select name="topic"><option>오늘의 흐름</option><option>연애운</option><option>재물운</option><option>사업·직장운</option><option>선택과 결정</option></select></label>
+              <label><span>카드 배열</span><select name="spread"><option value="one">카드 1장</option><option value="three">카드 3장</option></select></label>
+              <label class="span-2"><span>궁금한 내용</span><textarea name="question" rows="3" maxlength="180"></textarea></label>
+              <div class="form-actions span-2"><button class="button primary" type="submit">선택한 카드 보기</button><button class="button text" type="reset">다시 준비</button></div>
+            </form>
+          </section>
+
+          <section class="service-panel" id="panel-lotto" data-panel="lotto">
+            <div class="panel-head"><div><small>DAILY LOTTO 6/45</small><h3>오늘의 로또 추천번호</h3></div><span class="panel-badge">무료</span></div>
+            <div class="lotto-panel-intro"><div><strong>날짜와 조건으로 번호를 구성합니다.</strong><p>모든 번호 조합의 실제 당첨 확률은 같습니다.</p></div><span class="lotto-date-chip" id="lottoDateChip">오늘 날짜</span></div>
+            <form id="lottoForm" class="form-grid lotto-options">
+              <label><span>추천 기준 날짜</span><input name="lottoDate" type="date" required></label><label><span>추천 세트 수</span><select name="setCount"><option value="1">1세트</option><option value="3">3세트</option><option value="5" selected>5세트</option></select></label>
+              <label><span>구성 방식</span><select name="style"><option value="mixed">균형형</option><option value="low">낮은 번호 중심</option><option value="high">높은 번호 중심</option><option value="free">완전 자동</option></select></label><label><span>포함 번호</span><input name="includeNumbers" inputmode="numeric" placeholder="예: 7, 21"></label>
+              <label class="span-2"><span>제외 번호</span><input name="excludeNumbers" inputmode="numeric" placeholder="예: 4, 13, 28"></label>
+              <div class="form-actions span-2"><button class="button primary" type="submit">오늘 번호 만들기</button><button class="button ghost" id="lottoRemixBtn" type="button">다른 조합</button><button class="button text" type="reset">초기화</button></div>
+            </form>
+          </section>
+
           <section class="result-zone" id="resultZone" aria-live="polite">
             <div class="empty-result"><span>溫</span><h3>입력 후 결과가 여기에 표시됩니다.</h3><p>결과는 저장하거나 인쇄할 수 있습니다.</p></div>
           </section>
@@ -192,7 +249,7 @@
       <div class="shell">
         <div class="section-head"><div><p class="section-no">03 · MY ARCHIVE</p><h2>내 저장함</h2></div><p>작성 결과를 종류별로 정리하고 다시 열거나 파일로 백업할 수 있습니다.</p></div>
         <div class="archive-toolbar">
-          <div class="archive-search"><label class="sr-only" for="archiveSearch">저장함 검색</label><input id="archiveSearch" placeholder="이름·문서·날짜 검색"><select id="archiveFilter" aria-label="종류 필터"><option value="all">전체 종류</option><option value="naming">작명·개명</option><option value="analysis">이름풀이</option><option value="date">택일</option><option value="jibang">제사지방</option><option value="chukmun">축문</option></select></div>
+          <div class="archive-search"><label class="sr-only" for="archiveSearch">저장함 검색</label><input id="archiveSearch" placeholder="이름·문서·날짜 검색"><select id="archiveFilter" aria-label="종류 필터"><option value="all">전체 종류</option><option value="fortune">운세</option><option value="analysis">이름풀이</option><option value="lotto">오늘의 로또</option><option value="tarot">타로</option><option value="date">좋은 날 택일</option><option value="naming">작명·개명</option><option value="compatibility">궁합</option><option value="dream">꿈해몽</option><option value="jibang">제사지방</option><option value="chukmun">축문</option></select></div>
           <div class="archive-actions"><button type="button" id="exportBtn">전체 백업</button><label class="file-button">백업 복원<input type="file" id="importFile" accept="application/json"></label><button type="button" class="danger" id="clearArchiveBtn">전체 삭제</button></div>
         </div>
         <div class="archive-summary"><span><b id="archiveCount">0</b>개 저장</span><small>이 브라우저에만 보관됩니다.</small></div>
@@ -223,10 +280,13 @@
   <dialog id="refundDialog"><div class="dialog-head"><h2>환불정책</h2><button type="button" data-close>×</button></div><div class="dialog-body"><p>현재 온길은 결제를 받지 않으므로 환불 대상 거래가 발생하지 않습니다.</p><p>유료 서비스 재개 전 결제취소·환불 가능 기간과 디지털 콘텐츠 제공 이후의 제한사항을 관련 법령에 맞춰 별도 고지합니다.</p></div></dialog>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="assets/js/app.js?v=20260804-nomusic-v16"></script>
+  <script src="assets/js/app.js?v=20260804-full-audit-v17"></script>
   <script src="assets/js/extended-services.js"></script>
-  <script src="assets/js/face-ai.js"></script>
   <script src="assets/js/tarot-cards.js"></script>
   <script src="assets/js/lotto.js"></script>
+  <script src="assets/js/daily-fortune.js"></script>
+  <script src="assets/js/dream.js"></script>
+  <script src="assets/js/payment-ui.js"></script>
+  <script src="assets/js/access-control.js"></script>
 </body>
 </html>
