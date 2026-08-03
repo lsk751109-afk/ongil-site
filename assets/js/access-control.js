@@ -7,6 +7,9 @@
 
   const serviceLabels = {
     annual: '신년운세',
+    lifetime: '정통사주·평생운세',
+    wealth: '재물·사업운',
+    child: '태몽·자녀운',
     naming: '작명·개명',
     date: '좋은 날 택일',
     jibang: '제사지방',
@@ -17,6 +20,9 @@
 
   const formServices = {
     annualFortuneForm: 'annual',
+    lifetimeForm: 'lifetime',
+    wealthForm: 'wealth',
+    childForm: 'child',
     namingForm: 'naming',
     dateForm: 'date',
     jibangForm: 'jibang',
