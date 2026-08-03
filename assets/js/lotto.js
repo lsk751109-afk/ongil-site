@@ -1,5 +1,23 @@
 (() => {
   'use strict';
+  if (!document.querySelector('script[data-ongil-main-finish]')) {
+    const script = document.createElement('script');
+    script.src = 'assets/js/main-finish.js?v=20260803-final-v1';
+    script.async = true;
+    script.dataset.ongilMainFinish = 'true';
+    document.head.appendChild(script);
+  }
+  if (!document.querySelector('script[data-ongil-lower-theme]')) {
+    const script = document.createElement('script');
+    script.src = 'assets/js/lower-theme.js?v=20260803-warm-v1';
+    script.async = true;
+    script.dataset.ongilLowerTheme = 'true';
+    document.head.appendChild(script);
+  }
+})();
+
+(() => {
+  'use strict';
   if (document.querySelector('script[data-ongil-payment-ui]')) return;
   const script = document.createElement('script');
   script.src = 'assets/js/payment-ui.js?v=20260803-service-pass-v1';
