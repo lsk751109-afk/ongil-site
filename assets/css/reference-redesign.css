@@ -134,6 +134,7 @@ linear-gradient(110deg,rgba(222,202,169,.18),transparent 38%,rgba(224,199,159,.1
 .deep-report-intro h3{margin:7px 0 9px;color:#3f2a1e;font-family:"Noto Serif KR",serif;font-size:24px}
 .deep-report-intro p{margin:0;color:#67584c;line-height:1.8}
 .a4-deep-report:after{content:"A4 약 2장 분량 · 입력정보 기반 상세 보고서";display:block;margin-top:18px;padding-top:14px;border-top:1px solid #ead3b2;color:#8a7562;font-size:11px;text-align:right}
+.a4-deep-report.concise-report:after{content:"문안 사용 전 입력정보와 문중 관례를 최종 확인하세요"}
 .detailed-report .detail-card{padding:25px;background:#fffdfa!important}
 .detailed-report .detail-card h4{font-size:18px!important}
 .detailed-report .detail-card p{margin:10px 0 0!important;color:#55483f!important;font-size:14px!important;line-height:1.95!important}
