@@ -30,12 +30,12 @@ jobs:
             node --check "$file"
           done
 
-      - name: Validate ten service panels
+      - name: Validate eleven service panels
         run: |
           python - <<'PY'
           from pathlib import Path
           html = Path('index.html').read_text(encoding='utf-8')
-          services = ['fortune','analysis','lotto','tarot','date','naming','compatibility','dream','jibang','chukmun']
+          services = ['fortune','annual','analysis','lotto','tarot','date','naming','compatibility','dream','jibang','chukmun']
           for service in services:
               assert html.count(f'data-panel="{service}"') == 1, f'{service} panel must exist exactly once'
               assert f'data-service="{service}"' in html, f'{service} button missing'
