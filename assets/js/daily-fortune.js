@@ -52,6 +52,6 @@ form.addEventListener('submit',event=>{
     <div class="daily-grid">${cards.map(([title,value,text])=>`<article class="daily-card"><div class="daily-card-head"><h4>${title}</h4><b>${value}점</b></div><p>${esc(text)}</p><div class="daily-meter"><span style="--meter:${value}%"></span></div></article>`).join('')}</div>
     <div class="daily-lucky"><article><small>행운 색상</small><strong>${colors[seed%colors.length]}</strong></article><article><small>좋은 방향</small><strong>${directions[(seed>>2)%directions.length]}</strong></article><article><small>좋은 시간</small><strong>${times[(seed>>4)%times.length]}</strong></article><article><small>행운 번호</small><strong>${luckyNumbers(seed)}</strong></article></div>
     <p class="consent-note">오늘의 운세는 무료로 제공되는 전통문화 기반 오락성 참고자료입니다. 건강·법률·투자·계약 판단을 대신하지 않습니다.</p>`;
-  api()?.resultShell('daily',`${formatDate(today)} 오늘의 운세`,body,`${sign}띠 · 종합 ${total}점`);
+  api()?.resultShell('fortune',`${formatDate(today)} 오늘의 운세`,body,`${sign}띠 · 종합 ${total}점`);
 });
 })();
