@@ -1,3 +1,13 @@
+(() => {
+  'use strict';
+  if (document.querySelector('script[data-ongil-payment-ui]')) return;
+  const script = document.createElement('script');
+  script.src = 'assets/js/payment-ui.js?v=20260803-service-pass-v1';
+  script.async = true;
+  script.dataset.ongilPaymentUi = 'true';
+  document.head.appendChild(script);
+})();
+
 (()=>{
 'use strict';
 const form=document.querySelector('#lottoForm');
