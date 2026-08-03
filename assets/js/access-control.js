@@ -13,20 +13,16 @@
     chukmun: '축문',
     compatibility: '궁합',
     tarot: '타로',
-    face: '관상',
-    lotto: '오늘의 로또'
+    dream: '꿈해몽'
   };
 
   const formServices = {
     namingForm: 'naming',
-    analysisForm: 'analysis',
     dateForm: 'date',
     jibangForm: 'jibang',
     chukmunForm: 'chukmun',
     compatibilityForm: 'compatibility',
-    tarotForm: 'tarot',
-    faceForm: 'face',
-    lottoForm: 'lotto'
+    dreamForm: 'dream'
   };
 
   let pendingUse = null;
@@ -253,9 +249,7 @@
     installSubmitGate();
     installResultObserver();
 
-    const bodyObserver = new MutationObserver(() => renderBadges());
-    bodyObserver.observe(document.body, { childList: true, subtree: true });
-    window.setInterval(renderBadges, 1500);
+    window.addEventListener('storage', renderBadges);
   }
 
   init().catch(error => console.error('[ONGIL access]', error));
