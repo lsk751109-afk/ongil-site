@@ -91,7 +91,7 @@ form.addEventListener('submit',event=>{
   const excluded=parseNumbers(data.excludeNumbers);
   if(required.some(number=>excluded.includes(number))){api()?.toast('포함 번호와 제외 번호가 겹칩니다.');return;}
   if(required.length>6){api()?.toast('포함 번호는 최대 6개까지 입력할 수 있습니다.');return;}
-  const count=Math.min(10,Math.max(1,Number(data.setCount)||5));
+  const count=Math.min(20,Math.max(3,Number(data.setCount)||3));
   const baseSeed=hash(`${data.lottoDate}|${data.style}|${required.join(',')}|${excluded.join(',')}|${variation}`);
   const sets=[];
   const signatures=new Set();
