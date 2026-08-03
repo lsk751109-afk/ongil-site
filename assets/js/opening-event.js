@@ -3,6 +3,7 @@
 
   const ACCESS_KEY = 'ongil_paid_access_v1';
   const CLAIM_KEY = 'ongil_opening_event_5_claimed_v1';
+  const EVENT_END_AT = new Date('2026-09-03T23:59:59+09:00').getTime();
   const services = ['fortune', 'analysis', 'tarot', 'dream', 'lotto'];
   const button = document.querySelector('#claimOpeningPass');
   if (!button) return;
@@ -35,13 +36,27 @@
     return localStorage.getItem(CLAIM_KEY) === 'yes';
   }
 
+  function expired() {
+    return Date.now() > EVENT_END_AT;
+  }
+
   function updateButton() {
+    if (expired()) {
+      button.disabled = true;
+      button.textContent = '이벤트 종료';
+      return;
+    }
     if (!claimed()) return;
     button.disabled = true;
     button.textContent = '5회 이용권 발급 완료';
   }
 
   button.addEventListener('click', () => {
+    if (expired()) {
+      window.ONGIL?.toast('오픈 이벤트가 종료되었습니다.');
+      updateButton();
+      return;
+    }
     if (claimed()) {
       window.ONGIL?.toast('이미 오픈 이벤트 이용권을 받았습니다.');
       updateButton();
@@ -54,7 +69,7 @@
       txId: 'OPENING_EVENT_FREE_5',
       serviceIds: services,
       amount: 0,
-      promotion: 'opening-event-5',
+      promotion: 'opening-event-5-20260804-20260903',
       savedAt: now
     };
     const grants = safeGrants();
