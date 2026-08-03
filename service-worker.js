@@ -1,8 +1,9 @@
-const CACHE_NAME = 'ongil-shell-20260804-v2';
+const CACHE_NAME = 'ongil-shell-20260804-v3';
 const CORE_ASSETS = [
   '/',
   '/site.webmanifest',
-  '/assets/img/favicon.svg',
+  '/assets/img/favicon.ico?v=20260804-logo-v1',
+  '/assets/img/ongil-favicon-32.png?v=20260804-logo-v1',
   '/assets/img/ongil-app-icon-192.png',
   '/assets/img/ongil-app-icon-512.png',
   '/assets/img/ongil-apple-touch-icon.png',
