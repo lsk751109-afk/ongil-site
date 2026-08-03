@@ -131,9 +131,12 @@ function pickCards(data){
 function cardMarkup(item,position){
   const direction=item.reversed?'역방향':'정방향';
   const reading=item.reversed?item.card.reversed:item.card.upright;
+  const artIndex=item.cardIndex%16;
+  const artX=(artIndex%4)*33.333;
+  const artY=Math.floor(artIndex/4)*33.333;
   return `<article class="tarot-reading-card${item.reversed?' is-reversed':''}">
     <span class="tarot-position-label">${esc(position)}</span>
-    <div class="tarot-card-face">
+    <div class="tarot-card-face photoreal-face" style="--art-x:${artX}%;--art-y:${artY}%">
       <span class="tarot-card-number">${esc(item.card.roman)}</span>
       <span class="tarot-direction-ribbon">${direction}</span>
       <div class="tarot-card-illustration"><span class="tarot-card-symbol">${item.card.symbol}</span></div>
