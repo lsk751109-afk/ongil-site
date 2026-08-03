@@ -17,7 +17,7 @@
     }),
     minQuantity: 1,
     maxQuantity: 5,
-    apiBaseUrl: '',
+    apiBaseUrl: 'https://ongil-payment-api.lsk75.workers.dev',
     enabled: false
   });
 })();
