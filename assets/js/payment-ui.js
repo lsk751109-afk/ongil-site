@@ -103,9 +103,6 @@
               ${services.slice(5).map(([id, label]) => `<label class="payment-service"><input type="checkbox" value="${id}"><span>${label}</span></label>`).join('')}
             </div></div>
           </div>
-          <div class="payment-tier-list">
-            ${Object.entries(config.priceTiers).map(([count, price]) => `<span>${count}개 ${won(price)}</span>`).join('')}
-          </div>
         </div>
         <aside class="payment-summary">
           <h3>서비스 이용권</h3>
