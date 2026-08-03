@@ -74,3 +74,9 @@ linear-gradient(110deg,rgba(222,202,169,.18),transparent 38%,rgba(224,199,159,.1
 .hero-v2 h1{margin:0 auto 10px;color:#342218;font-family:"Noto Serif KR","Malgun Gothic",serif;font-size:clamp(27px,3vw,39px);font-weight:600;line-height:1.5;letter-spacing:-.045em;opacity:1;filter:none;text-shadow:0 1px 0 rgba(255,255,255,.8)}
 .hero-v2 h1 span{display:inline;margin:0;color:#342218;font-family:inherit;font-weight:600;-webkit-text-fill-color:#342218}
 @media(max-width:700px){.hero-v2-logo-image{width:190px;margin-bottom:2px}.hero-v2 h1{font-size:25px;line-height:1.48}}
+
+/* Unified header and footer logo */
+.brand-logo-image{display:block;width:58px;height:54px;object-fit:contain;flex:0 0 auto}
+.footer-logo-image{display:block;width:72px;height:68px;object-fit:contain;flex:0 0 auto}
+.footer-brand{align-items:center}
+@media(max-width:700px){.brand-logo-image{width:49px;height:47px}.footer-logo-image{width:62px;height:58px}}
