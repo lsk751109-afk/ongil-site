@@ -33,6 +33,37 @@ const cards=[
   {roman:'XXI',name:'세계',symbol:'◎',keyword:'완성 · 통합 · 확장',upright:'한 단계가 완성되고 더 넓은 기회로 이어집니다. 마무리와 공유를 함께 준비하세요.',reversed:'거의 끝났지만 마지막 정리가 부족합니다. 미완료 항목을 확인한 뒤 다음 단계로 가세요.'}
 ];
 
+const minorSuits=[
+  {name:'완드',symbol:'♣',theme:'열정 · 행동 · 창조',field:'목표와 실행',gift:'의욕을 구체적인 행동으로 옮기면 새로운 흐름을 만들 수 있습니다.',shadow:'의욕이 앞서 방향과 체력 배분을 놓치고 있지 않은지 점검하세요.'},
+  {name:'컵',symbol:'♥',theme:'감정 · 관계 · 직관',field:'마음과 관계',gift:'감정을 솔직하고 차분하게 표현할수록 관계의 흐름이 선명해집니다.',shadow:'기대와 현실을 혼동하거나 상대의 마음을 추측으로 단정하지 마세요.'},
+  {name:'소드',symbol:'♠',theme:'사고 · 판단 · 소통',field:'판단과 대화',gift:'사실과 기준을 분명히 하면 복잡한 문제의 핵심을 찾을 수 있습니다.',shadow:'지나친 걱정이나 날카로운 말이 문제를 키우지 않는지 돌아보세요.'},
+  {name:'펜타클',symbol:'◆',theme:'재물 · 현실 · 기반',field:'재정과 생활 기반',gift:'시간과 자원을 꾸준히 관리하면 눈에 보이는 성과로 이어질 수 있습니다.',shadow:'눈앞의 이익이나 익숙한 안정에 매여 더 중요한 가치를 놓치지 마세요.'}
+];
+const minorRanks=[
+  {roman:'A',name:'에이스',key:'시작 · 씨앗',up:'새로운 가능성이 열린 단계입니다. 작은 기회를 구체적인 첫 행동으로 연결하세요.',rev:'가능성은 있지만 준비나 확신이 부족할 수 있습니다. 시작 조건부터 다시 정리하세요.'},
+  {roman:'2',name:'2',key:'선택 · 균형',up:'두 선택지의 장단점을 비교하고 우선순위를 정할 때입니다.',rev:'결정을 미루거나 양쪽을 모두 잡으려다 힘이 분산될 수 있습니다.'},
+  {roman:'3',name:'3',key:'확장 · 협력',up:'혼자 준비한 것을 타인과 연결하면 더 넓은 결과를 만들 수 있습니다.',rev:'협력의 역할과 기대가 불분명해 진행이 엇갈릴 수 있습니다.'},
+  {roman:'4',name:'4',key:'안정 · 기반',up:'지금까지 만든 기반을 지키고 안정적으로 정착시키는 흐름입니다.',rev:'안정을 지키려는 마음이 변화에 대한 저항으로 굳어지지 않았는지 보세요.'},
+  {roman:'5',name:'5',key:'갈등 · 변화',up:'차이와 경쟁이 드러나지만 문제의 원인을 알 수 있는 계기이기도 합니다.',rev:'갈등을 피하기만 하면 같은 문제가 반복됩니다. 핵심 쟁점을 차분히 말하세요.'},
+  {roman:'6',name:'6',key:'회복 · 조화',up:'도움의 균형과 관계의 회복이 가능한 흐름입니다. 주고받는 기준을 확인하세요.',rev:'한쪽만 베풀거나 받는 불균형이 생기지 않았는지 살펴보세요.'},
+  {roman:'7',name:'7',key:'점검 · 인내',up:'성과를 서두르기보다 지금의 방식과 진행 상황을 평가할 때입니다.',rev:'기다림이 지치거나 성과 없는 반복이 될 수 있으니 방법을 수정하세요.'},
+  {roman:'8',name:'8',key:'집중 · 숙련',up:'반복과 훈련이 실력을 만드는 시기입니다. 한 가지에 집중하세요.',rev:'완벽주의나 단조로운 반복 때문에 본래 목적을 잃지 않도록 점검하세요.'},
+  {roman:'9',name:'9',key:'결실 · 독립',up:'스스로 쌓아온 결과를 확인하고 자신의 기준을 믿어도 좋습니다.',rev:'성과를 지키려는 불안이나 고립이 만족을 가리고 있을 수 있습니다.'},
+  {roman:'10',name:'10',key:'완성 · 전환',up:'한 주기가 완성되는 단계입니다. 결과를 정리하고 다음 책임을 준비하세요.',rev:'책임이 과도해졌거나 끝낼 일을 붙들고 있지 않은지 확인하세요.'},
+  {roman:'P',name:'시종',key:'소식 · 배움',up:'새로운 정보와 배움에 열린 태도가 기회를 가져옵니다. 먼저 질문하세요.',rev:'미숙한 정보나 가벼운 약속을 그대로 믿지 말고 사실을 확인하세요.'},
+  {roman:'N',name:'기사',key:'이동 · 추진',up:'목표를 향해 움직일 힘이 생깁니다. 방향과 속도를 함께 관리하세요.',rev:'성급한 행동이나 방향 없는 돌진이 손실을 만들 수 있습니다.'},
+  {roman:'Q',name:'여왕',key:'성숙 · 돌봄',up:'상황을 깊이 이해하고 사람과 자원을 세심하게 돌보는 힘이 중요합니다.',rev:'타인을 돌보느라 자신을 소진하거나 감정에 치우치지 않도록 하세요.'},
+  {roman:'K',name:'왕',key:'통솔 · 책임',up:'경험을 바탕으로 기준을 세우고 책임 있게 결정할 단계입니다.',rev:'권위나 통제가 강해지지 않았는지 살피고 다른 의견을 들으세요.'}
+];
+minorSuits.forEach(suit=>minorRanks.forEach(rank=>cards.push({
+  roman:`${suit.name} ${rank.roman}`,
+  name:`${suit.name} ${rank.name}`,
+  symbol:suit.symbol,
+  keyword:`${rank.key} · ${suit.theme}`,
+  upright:`${suit.field}의 영역에서 ${rank.up} ${suit.gift}`,
+  reversed:`${suit.field}의 영역에서 ${rank.rev} ${suit.shadow}`
+})));
+
 const actions=form.querySelector('.form-actions');
 const spread=form.querySelector('[name="spread"]');
 const stage=document.createElement('section');
@@ -40,13 +71,13 @@ stage.className='tarot-picker span-2';
 stage.setAttribute('aria-label','타로 카드 선택');
 stage.innerHTML=`
   <div class="tarot-picker-head">
-    <div><strong>마음이 가는 카드를 선택하세요</strong><p>카드 앞면은 결과에서 공개됩니다. 1장 또는 3장을 직접 선택할 수 있습니다.</p></div>
+    <div><strong>78장 전체 덱에서 마음이 가는 카드를 선택하세요</strong><p>메이저 22장과 마이너 56장으로 구성된 실제 타로 덱입니다. 카드 앞면은 결과에서 공개됩니다.</p></div>
     <span class="tarot-selection-status" id="tarotSelectionStatus">0 / 1장 선택</span>
   </div>
   <div class="tarot-deck" id="tarotDeck">
-    ${Array.from({length:9},(_,index)=>`<button class="tarot-back-card" type="button" data-slot="${index}" aria-pressed="false" aria-label="${index+1}번째 타로 카드 선택"><span class="tarot-card-back-inner"><span class="tarot-back-moon"></span><span class="tarot-back-stars"></span></span><span class="tarot-pick-number" aria-hidden="true"></span></button>`).join('')}
+    ${Array.from({length:cards.length},(_,index)=>`<button class="tarot-back-card" type="button" data-slot="${index}" aria-pressed="false" aria-label="${index+1}번째 타로 카드 선택"><span class="tarot-card-back-inner"><span class="tarot-back-moon"></span><span class="tarot-back-stars"></span></span><span class="tarot-pick-number" aria-hidden="true"></span></button>`).join('')}
   </div>
-  <p class="tarot-picker-note">같은 질문을 반복해서 뽑기보다 첫 선택의 메시지를 차분히 살펴보세요.</p>`;
+  <p class="tarot-picker-note">총 78장 · 같은 질문을 반복해서 뽑기보다 첫 선택의 메시지를 차분히 살펴보세요.</p>`;
 if(actions)actions.before(stage);else form.append(stage);
 
 const deck=stage.querySelector('#tarotDeck');
