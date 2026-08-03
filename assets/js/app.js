@@ -2,7 +2,7 @@
 'use strict';
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const STORAGE_KEY='ongil_archive_v1';
-const typeLabels={naming:'작명·개명',analysis:'이름풀이',date:'택일',jibang:'제사지방',chukmun:'축문',compatibility:'궁합',tarot:'타로',lotto:'오늘의 로또',face:'관상'};
+const typeLabels={fortune:'운세',naming:'작명·개명',analysis:'이름풀이',date:'좋은 날 택일',jibang:'제사지방',chukmun:'축문',compatibility:'궁합',tarot:'타로',lotto:'오늘의 로또',dream:'꿈해몽'};
 let currentResult=null;
 
 const syllables={
@@ -22,7 +22,7 @@ function getArchive(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'
 function setArchive(rows){localStorage.setItem(STORAGE_KEY,JSON.stringify(rows));renderArchive();}
 function toast(msg){const el=$('#toast');el.textContent=msg;el.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.remove('show'),2300)}
 function formatDateTime(iso){return new Intl.DateTimeFormat('ko-KR',{dateStyle:'medium',timeStyle:'short'}).format(new Date(iso));}
-function serviceSwitch(type,scroll=true){$$('[data-service]').forEach(x=>x.classList.toggle('active',x.dataset.service===type));$$('[data-panel]').forEach(x=>x.classList.toggle('active',x.dataset.panel===type));if(scroll)$('#workspace').scrollIntoView({behavior:'smooth',block:'start'});}
+function serviceSwitch(type,scroll=true){const panel=$(`[data-panel="${type}"]`);if(!panel){toast('해당 서비스 화면을 준비 중입니다.');return}$$('[data-service]').forEach(x=>x.classList.toggle('active',x.dataset.service===type));$$('[data-panel]').forEach(x=>x.classList.toggle('active',x.dataset.panel===type));if(scroll)$('#workspace')?.scrollIntoView({behavior:'smooth',block:'start'});}
 function resultShell(type,title,body,summary){currentResult={id:uid(),type,title,summary,body,createdAt:new Date().toISOString()};$('#resultZone').innerHTML=`<div class="result-head"><div><small>${esc(typeLabels[type])} 결과</small><h3>${esc(title)}</h3></div><div class="result-actions"><button type="button" class="save" id="saveResultBtn">저장하기</button><button type="button" id="printResultBtn">인쇄</button></div></div>${body}`;$('#saveResultBtn').onclick=saveCurrent;$('#printResultBtn').onclick=()=>window.print();$('#resultZone').scrollIntoView({behavior:'smooth',block:'nearest'});}
 function saveCurrent(){if(!currentResult)return;const rows=getArchive();const copy={...currentResult,id:uid(),createdAt:new Date().toISOString()};rows.unshift(copy);setArchive(rows);toast('저장함에 보관했습니다.');}
 
