@@ -6,6 +6,10 @@
   const CONFIG_SRC = 'assets/js/payment-config.js?v=20260803-one-use-v1';
 
   const serviceLabels = {
+    fortune: '운세 상세풀이',
+    analysis: '이름 상세풀이',
+    tarot: '타로 심층해석',
+    lotto: '로또 20세트',
     annual: '신년운세',
     lifetime: '정통사주·평생운세',
     wealth: '재물·사업운',
@@ -30,6 +34,18 @@
     compatibilityForm: 'compatibility',
     dreamForm: 'dream'
   };
+  const mixedForms = {
+    dailyFortuneForm: 'fortune',
+    analysisForm: 'analysis',
+    tarotForm: 'tarot',
+    dreamForm: 'dream',
+    lottoForm: 'lotto'
+  };
+  const mixedServices = new Set(Object.values(mixedForms));
+  function requestsDetail(form) {
+    if (form?.id === 'lottoForm') return form.elements.setCount?.value === '20';
+    return form?.elements.resultTier?.value === 'detail';
+  }
 
   let pendingUse = null;
   let pendingTimer = 0;
@@ -144,9 +160,9 @@
   }
 
   function serviceState(serviceId) {
-    if (findGrant(serviceId)) return ['available', '1회 사용 가능'];
+    if (findGrant(serviceId)) return ['available', mixedServices.has(serviceId) ? '상세 1회 사용 가능' : '1회 사용 가능'];
     if (hasPurchased(serviceId)) return ['used', '사용 완료'];
-    return ['locked', '이용권 필요'];
+    return mixedServices.has(serviceId) ? ['locked', '무료 기본 · 상세 유료'] : ['locked', '이용권 필요'];
   }
 
   function renderBadges() {
@@ -208,8 +224,9 @@
       if (!isEnforced()) return;
 
       const form = event.target;
-      const serviceId = formServices[form?.id];
+      const serviceId = formServices[form?.id] || mixedForms[form?.id];
       if (!serviceId) return;
+      if (mixedForms[form?.id] && !requestsDetail(form)) return;
 
       const grant = findGrant(serviceId);
       if (!grant) {
