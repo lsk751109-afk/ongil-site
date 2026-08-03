@@ -6,15 +6,12 @@
   const ACCESS_KEY = 'ongil_paid_access_v1';
 
   const services = [
-    ['naming', '작명·개명'],
-    ['analysis', '이름풀이'],
-    ['date', '좋은 날 택일'],
-    ['jibang', '제사지방'],
-    ['chukmun', '축문'],
-    ['compatibility', '궁합'],
-    ['tarot', '타로'],
-    ['face', '관상'],
-    ['lotto', '오늘의 로또']
+    ['naming', '작명·개명', 'naming'],
+    ['date', '좋은 날 택일', 'date'],
+    ['jibang', '제사지방', 'jibang'],
+    ['chukmun', '축문', 'chukmun'],
+    ['compatibility', '궁합', 'compatibility'],
+    ['dream', '꿈해몽', 'face']
   ];
 
   const won = value => new Intl.NumberFormat('ko-KR').format(Number(value || 0)) + '원';
@@ -166,6 +163,7 @@
 
     const selectedIds = () => checkboxes.filter(input => input.checked).map(input => input.value);
     const labelsFor = ids => ids.map(id => services.find(item => item[0] === id)?.[1] || id);
+    const backendIdsFor = ids => ids.map(id => services.find(item => item[0] === id)?.[2] || id);
 
     function refresh() {
       const ids = selectedIds();
@@ -213,8 +211,9 @@
       status.textContent = '주문정보를 안전하게 생성하고 있습니다.';
 
       try {
+        const backendIds = backendIdsFor(ids);
         const prepared = await postJson(`${config.apiBaseUrl}/payments/prepare`, {
-          serviceIds: ids,
+          serviceIds: backendIds,
           customer: { fullName: customerName, phoneNumber, email: email || undefined }
         });
 
@@ -248,7 +247,7 @@
         const verified = await postJson(`${config.apiBaseUrl}/payments/verify`, {
           paymentId: response.paymentId,
           txId: response.txId,
-          serviceIds: ids
+          serviceIds: backendIds
         });
         if (!verified.paid) throw new Error(verified.message || '결제 검증에 실패했습니다.');
 
