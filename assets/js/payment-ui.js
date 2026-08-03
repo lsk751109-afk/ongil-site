@@ -7,6 +7,9 @@
 
   const services = [
     ['annual', '2027 신년운세 · 5,000원', 'annual'],
+    ['lifetime', '정통사주·평생운세', 'lifetime'],
+    ['wealth', '재물·사업운', 'wealth'],
+    ['child', '태몽·자녀운', 'child'],
     ['naming', '작명·개명', 'naming'],
     ['date', '좋은 날 택일', 'date'],
     ['jibang', '제사지방', 'jibang'],
