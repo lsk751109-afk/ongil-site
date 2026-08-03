@@ -8,6 +8,16 @@
   document.head.appendChild(script);
 })();
 
+(() => {
+  'use strict';
+  if (document.querySelector('script[data-ongil-access-control]')) return;
+  const script = document.createElement('script');
+  script.src = 'assets/js/access-control.js?v=20260803-one-use-v1';
+  script.async = true;
+  script.dataset.ongilAccessControl = 'true';
+  document.head.appendChild(script);
+})();
+
 (()=>{
 'use strict';
 const form=document.querySelector('#lottoForm');
