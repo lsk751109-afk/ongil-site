@@ -2,7 +2,7 @@
 'use strict';
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const STORAGE_KEY='ongil_archive_v1';
-const typeLabels={fortune:'운세',annual:'신년운세',naming:'작명·개명',analysis:'이름풀이',date:'좋은 날 택일',jibang:'제사지방',chukmun:'축문',compatibility:'궁합',tarot:'타로',lotto:'오늘의 로또',dream:'꿈해몽'};
+const typeLabels={fortune:'운세',annual:'신년운세',lifetime:'정통사주·평생운세',wealth:'재물·사업운',child:'태몽·자녀운',naming:'작명·개명',analysis:'이름풀이',date:'좋은 날 택일',jibang:'제사지방',chukmun:'축문',compatibility:'궁합',tarot:'타로',lotto:'오늘의 로또',dream:'꿈해몽'};
 let currentResult=null;
 
 const syllables={
@@ -26,6 +26,9 @@ function serviceSwitch(type,scroll=true){const panel=$(`[data-panel="${type}"]`)
 const reportProfiles={
  fortune:{basis:'생년월일·오늘 날짜·관심 분야',areas:'총운, 재물, 사업·직장, 관계, 생활 리듬',strength:'우선순위를 좁히고 작은 결과를 완성하는 힘',risk:'점수만 믿고 소비·계약·건강 문제를 성급히 판단하는 태도',action:'오전 핵심과제 1개, 오후 지출·진행 점검, 저녁 미완료 일정 정리',limit:'미래의 확률이나 사건을 예언하는 결과가 아닙니다.'},
  annual:{basis:'성명·생년월일·출생시간·성별·풀이 연도·중점 분야',areas:'연간 총운, 재물, 사업·직장, 애정·가족, 건강·생활, 12개월 흐름',strength:'한 해의 목표를 분기와 월별 행동으로 나누어 꾸준히 점검하는 힘',risk:'좋은 달과 나쁜 달을 확정된 사건처럼 받아들여 현실 자료를 무시하는 태도',action:'연간 목표 2개를 정하고 매월 실제 결과와 지출·관계·생활 리듬을 기록',limit:'신년운세는 자기성찰용 참고자료이며 수익·건강·미래 사건을 보장하지 않습니다.'},
+ lifetime:{basis:'성명·생년월일·출생시간·출생지역·중점 분야',areas:'기본 기질, 생애 단계, 직업, 재물, 관계, 생활 리듬',strength:'오랜 경험을 기준과 체계로 바꾸는 힘',risk:'운의 흐름을 확정된 사건으로 받아들이는 태도',action:'3년 목표를 분기별 결과로 나누고 매월 기록',limit:'평생운세는 자기성찰용 참고자료이며 미래·재산·건강을 보장하지 않습니다.'},
+ wealth:{basis:'성명·생년월일·현재 상태·관심 기간·현재 고민',areas:'현금흐름, 수입, 지출, 직장, 창업, 계약, 위험관리',strength:'작은 실험과 기록을 통해 반복 가능한 수입 구조를 만드는 힘',risk:'관계나 낙관만으로 투자·대출·계약을 결정하는 태도',action:'월별 현금흐름과 핵심 사업지표를 기록',limit:'투자·경영 자문이나 수익 보장이 아닙니다.'},
+ child:{basis:'신청자 정보·풀이 유형·태몽 또는 현재 상황·관심 분야',areas:'꿈의 상징, 정서, 관계, 성장, 교육, 재능, 부모 역할',strength:'관찰과 대화로 안전한 성장 환경을 만드는 힘',risk:'상징으로 성별·건강·발달·진로를 단정하는 태도',action:'30일간 관찰·대화·활동·피드백을 기록',limit:'임신 결과·성별·건강·발달을 예측하거나 진단하지 않습니다.'},
  naming:{basis:'성씨·출생정보·이름 길이·성별 인상·포함 및 제외 글자',areas:'호명감, 음절 조화, 의미, 사회적 사용성, 신고 가능성',strength:'가족이 담고 싶은 가치를 자연스럽고 오래 부를 수 있는 이름으로 표현하는 것',risk:'한글 음절만 보고 사용할 한자와 신고 가능 여부를 확인하지 않는 것',action:'후보 3개 호명 테스트, 영문 표기·동명이인·놀림 가능성 확인, 인명용 한자 검토',limit:'후보 점수는 요청 조건과의 조화도이며 사람의 운명이나 우열이 아닙니다.'},
  analysis:{basis:'성명·생년월일·발음 흐름·글자의 대표 의미',areas:'기본 인상, 성향, 사업, 재물, 가족, 건강·생활',strength:'이름의 긍정적 의미를 실제 습관과 선택 기준으로 연결하는 것',risk:'풀이를 건강 진단이나 투자·관계의 확정 근거로 사용하는 것',action:'강점 1개와 보완점 1개를 정해 목표·지출·대화·생활 기록을 90일간 점검',limit:'한자가 입력되지 않은 경우 한글 음절의 일반적 이미지까지만 해석합니다.'},
  tarot:{basis:'질문·주제·배열 위치·카드 상징·정방향과 역방향',areas:'현재 상황, 방해 요인, 감정과 사실, 선택지, 앞으로의 태도',strength:'말로 설명하기 어려운 고민을 구조화하고 선택 기준을 정리하는 것',risk:'원하는 답이 나올 때까지 반복하거나 카드로 타인의 마음을 단정하는 것',action:'공감되는 문장 1개, 확인할 사실 1개, 48시간 안에 실행할 행동 1개 기록',limit:'건강·법률·계약·투자는 카드보다 실제 자료와 전문가 판단이 우선입니다.'},
@@ -73,6 +76,7 @@ function renderArchive(){const all=getArchive(),q=($('#archiveSearch')?.value||'
 function openArchive(id){const x=getArchive().find(r=>r.id===id);if(!x)return;currentResult=x;serviceSwitch(x.type,false);$('#resultZone').innerHTML=`<div class="result-head"><div><small>저장된 ${esc(typeLabels[x.type]||'결과')}</small><h3>${esc(x.title)}</h3></div><div class="result-actions"><button type="button" id="printResultBtn">인쇄</button></div></div>${x.body}`;$('#printResultBtn').onclick=()=>window.print();$('#workspace').scrollIntoView({behavior:'smooth'});}
 function deleteArchive(id){if(!confirm('이 저장 결과를 삭제할까요?'))return;setArchive(getArchive().filter(x=>x.id!==id));toast('삭제했습니다.');}
 
+[['lifetime','정통사주·평생운세'],['wealth','재물·사업운'],['child','태몽·자녀운']].forEach(([value,label])=>{if(!$('#archiveFilter').querySelector(`option[value="${value}"]`))$('#archiveFilter').add(new Option(label,value));});
 $('#archiveSearch').addEventListener('input',renderArchive);$('#archiveFilter').addEventListener('change',renderArchive);
 $('#exportBtn').onclick=()=>{const rows=getArchive();if(!rows.length){toast('백업할 저장 결과가 없습니다.');return}const blob=new Blob([JSON.stringify({version:1,exportedAt:new Date().toISOString(),items:rows},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`ongil-backup-${new Date().toISOString().slice(0,10)}.json`;a.click();URL.revokeObjectURL(a.href);toast('백업 파일을 저장했습니다.');};
 $('#importFile').addEventListener('change',e=>{const file=e.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{try{const parsed=JSON.parse(reader.result),items=Array.isArray(parsed)?parsed:parsed.items;if(!Array.isArray(items))throw Error();const clean=items.filter(x=>x&&x.id&&x.type&&x.title&&x.body).map(x=>({...x,id:uid()}));setArchive([...clean,...getArchive()]);toast(`${clean.length}개 결과를 복원했습니다.`)}catch{toast('올바른 온길 백업 파일이 아닙니다.')}e.target.value=''};reader.readAsText(file)});
