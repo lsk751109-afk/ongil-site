@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="assets/css/tarot-cards.css?v=20260804-ongil-back-v5">
   <link rel="stylesheet" href="assets/css/lotto.css">
   <link rel="stylesheet" href="assets/css/daily-fortune.css">
+  <link rel="stylesheet" href="assets/css/annual-fortune.css?v=20260804-v1">
   <link rel="stylesheet" href="assets/css/reference-redesign.css?v=20260804-a4-report-v12">
   <title>온길 | 이름과 예를 잇는 생활문화 서비스</title>
 </head>
@@ -67,6 +68,7 @@
         <h2 class="hero-service-title">온길이 전하는 중요한 시작의 길</h2>
         <div class="hero-service-shortcuts-inner">
           <button type="button" data-service="fortune">운세 · 무료</button>
+          <button type="button" data-service="annual">2027 신년운세 · 5,000원</button>
           <button type="button" data-service="analysis">이름풀이 · 무료</button>
           <button type="button" data-service="lotto">오늘의 로또 · 무료</button>
           <button type="button" data-service="tarot">타로 · 무료</button>
@@ -83,11 +85,12 @@
     <section class="section services" id="services">
       <div class="shell">
         <div class="section-head service-head-one-line">
-          <div><p class="section-no">01 · SERVICES</p><h2>필요한 순간에 선택하는 온길의 열 가지 서비스</h2></div>
-          <p>무료 4개, 유료 6개 서비스를 선택해 바로 이용할 수 있습니다.</p>
+          <div><p class="section-no">01 · SERVICES</p><h2>필요한 순간에 선택하는 온길의 열한 가지 서비스</h2></div>
+          <p>무료 4개, 유료 7개 서비스를 선택해 바로 이용할 수 있습니다.</p>
         </div>
         <div class="service-grid">
           <button class="service-card" type="button" data-service="fortune" data-tier="free"><span>01</span><i>運</i><h3>운세</h3><p>오늘의 흐름과 생활운을 편안하게 살펴봅니다.</p><b class="service-price">무료</b></button>
+          <button class="service-card annual-service-card" type="button" data-service="annual"><span>11</span><i>新</i><h3>2027 신년운세</h3><p>한 해의 총운과 12개월 흐름을 상세히 풀이합니다.</p><b class="service-price">5,000원</b></button>
           <button class="service-card" type="button" data-service="analysis" data-tier="free"><span>02</span><i>解</i><h3>이름풀이</h3><p>이름에 담긴 뜻과 분야별 운을 풀어드립니다.</p><b class="service-price">무료</b></button>
           <button class="service-card" type="button" data-service="lotto" data-tier="free"><span>03</span><i>福</i><h3>오늘의 로또</h3><p>가볍게 즐기는 오늘의 행운 번호를 확인합니다.</p><b class="service-price">무료</b></button>
           <button class="service-card" type="button" data-service="tarot" data-tier="free"><span>04</span><i>星</i><h3>타로</h3><p>카드가 전하는 오늘의 메시지를 만나보세요.</p><b class="service-price">무료</b></button>
@@ -113,7 +116,7 @@
 
         <div class="workspace-main">
           <div class="workspace-tabs" role="tablist" aria-label="작성 서비스">
-            <button type="button" data-service="fortune">운세</button><button type="button" data-service="analysis">이름풀이</button><button type="button" data-service="lotto">오늘의 로또</button><button type="button" data-service="tarot">타로</button><button type="button" data-service="date">좋은 날 택일</button><button class="active" type="button" data-service="naming">작명·개명</button><button type="button" data-service="compatibility">궁합</button><button type="button" data-service="dream">꿈해몽</button><button type="button" data-service="jibang">제사지방</button><button type="button" data-service="chukmun">축문</button>
+            <button type="button" data-service="fortune">운세</button><button type="button" data-service="annual">2027 신년운세</button><button type="button" data-service="analysis">이름풀이</button><button type="button" data-service="lotto">오늘의 로또</button><button type="button" data-service="tarot">타로</button><button type="button" data-service="date">좋은 날 택일</button><button class="active" type="button" data-service="naming">작명·개명</button><button type="button" data-service="compatibility">궁합</button><button type="button" data-service="dream">꿈해몽</button><button type="button" data-service="jibang">제사지방</button><button type="button" data-service="chukmun">축문</button>
           </div>
 
           <section class="service-panel" id="panel-fortune" data-panel="fortune">
@@ -125,6 +128,20 @@
               <label><span>성별</span><select name="gender"><option value="미입력">선택 안 함</option><option value="남">남</option><option value="여">여</option></select></label>
               <label><span>관심 분야</span><select name="focus"><option>전체 흐름</option><option>재물과 소비</option><option>사업과 직장</option><option>애정과 인연</option><option>건강과 생활</option></select></label>
               <div class="form-actions span-2"><button class="button primary" type="submit">오늘의 운세 무료 보기</button><button class="button text" type="reset">입력 초기화</button></div>
+            </form>
+          </section>
+
+          <section class="service-panel" id="panel-annual" data-panel="annual">
+            <div class="panel-head"><div><small>2027 YEARLY FORTUNE</small><h3>2027년 신년운세</h3></div><span class="panel-badge">유료 · 5,000원</span></div>
+            <div class="annual-intro"><div><strong>다가오는 한 해를 월별로 준비하세요.</strong><p>연간 총운과 재물·사업·애정·건강운, 12개월 흐름을 A4 3~4장 수준으로 제공합니다.</p></div><span class="annual-price">5,000원</span></div>
+            <form id="annualFortuneForm" class="form-grid">
+              <label><span>성명</span><input name="fullName" maxlength="10" placeholder="예: 홍길동" required></label>
+              <label><span>풀이 연도</span><select name="targetYear"><option value="2027">2027년</option><option value="2028">2028년</option></select></label>
+              <label><span>생년월일</span><input name="birthDate" type="date" required></label>
+              <label><span>태어난 시각</span><input name="birthTime" type="time"><small>모르면 비워둘 수 있습니다.</small></label>
+              <label><span>성별</span><select name="gender"><option value="미입력">선택 안 함</option><option value="남">남</option><option value="여">여</option></select></label>
+              <label><span>중점 분야</span><select name="focus"><option>전체 흐름</option><option>재물과 사업</option><option>직장과 성취</option><option>애정과 가족</option><option>건강과 생활</option></select></label>
+              <div class="form-actions span-2"><button class="button primary" type="submit">2027 신년운세 상세풀이</button><button class="button text" type="reset">입력 초기화</button></div>
             </form>
           </section>
 
@@ -249,7 +266,7 @@
       <div class="shell">
         <div class="section-head"><div><p class="section-no">03 · MY ARCHIVE</p><h2>내 저장함</h2></div><p>작성 결과를 종류별로 정리하고 다시 열거나 파일로 백업할 수 있습니다.</p></div>
         <div class="archive-toolbar">
-          <div class="archive-search"><label class="sr-only" for="archiveSearch">저장함 검색</label><input id="archiveSearch" placeholder="이름·문서·날짜 검색"><select id="archiveFilter" aria-label="종류 필터"><option value="all">전체 종류</option><option value="fortune">운세</option><option value="analysis">이름풀이</option><option value="lotto">오늘의 로또</option><option value="tarot">타로</option><option value="date">좋은 날 택일</option><option value="naming">작명·개명</option><option value="compatibility">궁합</option><option value="dream">꿈해몽</option><option value="jibang">제사지방</option><option value="chukmun">축문</option></select></div>
+          <div class="archive-search"><label class="sr-only" for="archiveSearch">저장함 검색</label><input id="archiveSearch" placeholder="이름·문서·날짜 검색"><select id="archiveFilter" aria-label="종류 필터"><option value="all">전체 종류</option><option value="fortune">운세</option><option value="annual">신년운세</option><option value="analysis">이름풀이</option><option value="lotto">오늘의 로또</option><option value="tarot">타로</option><option value="date">좋은 날 택일</option><option value="naming">작명·개명</option><option value="compatibility">궁합</option><option value="dream">꿈해몽</option><option value="jibang">제사지방</option><option value="chukmun">축문</option></select></div>
           <div class="archive-actions"><button type="button" id="exportBtn">전체 백업</button><label class="file-button">백업 복원<input type="file" id="importFile" accept="application/json"></label><button type="button" class="danger" id="clearArchiveBtn">전체 삭제</button></div>
         </div>
         <div class="archive-summary"><span><b id="archiveCount">0</b>개 저장</span><small>이 브라우저에만 보관됩니다.</small></div>
@@ -280,13 +297,14 @@
   <dialog id="refundDialog"><div class="dialog-head"><h2>환불정책</h2><button type="button" data-close>×</button></div><div class="dialog-body"><p>현재 온길은 결제를 받지 않으므로 환불 대상 거래가 발생하지 않습니다.</p><p>유료 서비스 재개 전 결제취소·환불 가능 기간과 디지털 콘텐츠 제공 이후의 제한사항을 관련 법령에 맞춰 별도 고지합니다.</p></div></dialog>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="assets/js/app.js?v=20260804-a4-report-v12"></script>
+  <script src="assets/js/app.js?v=20260804-annual-v13"></script>
   <script src="assets/js/extended-services.js"></script>
   <script src="assets/js/tarot-cards.js?v=20260804-photoreal-78-v4"></script>
   <script src="assets/js/lotto.js"></script>
   <script src="assets/js/daily-fortune.js"></script>
+  <script src="assets/js/annual-fortune.js?v=20260804-v1"></script>
   <script src="assets/js/dream.js"></script>
-  <script src="assets/js/payment-ui.js"></script>
-  <script src="assets/js/access-control.js?v=20260804-free-fix-v2"></script>
+  <script src="assets/js/payment-ui.js?v=20260804-annual-v2"></script>
+  <script src="assets/js/access-control.js?v=20260804-annual-v3"></script>
 </body>
 </html>
