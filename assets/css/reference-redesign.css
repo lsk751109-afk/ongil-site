@@ -26,6 +26,10 @@ linear-gradient(110deg,rgba(222,202,169,.18),transparent 38%,rgba(224,199,159,.1
 .hero-v2 .hero-actions{justify-content:center;margin:18px 0 0}
 .hero-v2 .button.primary{min-width:220px;color:#fff;background:linear-gradient(90deg,#e56f00,#f28b00);border:0;box-shadow:0 10px 24px rgba(232,118,0,.18)}
 .hero-v2 .button.ghost,.hero-v2-trust,.hero-v2-visual{display:none}
+.main-business-info{padding:14px 0;background:#5a3825;color:#fff8ef;border-top:1px solid #bd8752;border-bottom:1px solid #bd8752}
+.main-business-info-inner{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px 18px;font-size:12px;line-height:1.6}
+.main-business-info-inner strong{color:#ffd8aa;font-family:"Noto Serif KR",serif;font-size:13px}
+.main-business-info-inner span{white-space:nowrap}
 .hero-service-shortcuts{padding:12px 0 6px;background:#fffdf9}
 .hero-service-title{text-align:center;margin:0 0 10px;font-family:"Noto Serif KR",serif;font-size:25px;font-weight:600}
 .hero-service-title:before,.hero-service-title:after{content:"❧";display:inline-block;margin:0 18px;color:#c99b60;font-size:18px}
@@ -66,6 +70,9 @@ linear-gradient(110deg,rgba(222,202,169,.18),transparent 38%,rgba(224,199,159,.1
  .hero-service-title{font-size:20px}.hero-service-title:before,.hero-service-title:after{margin:0 8px}
  .services .service-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
  .services .service-card,.services .service-card:first-child,.services .service-card:not(:first-child){min-height:190px;padding:20px 10px}
+ .main-business-info{padding:13px 0}
+ .main-business-info-inner{display:grid;justify-content:start;gap:3px;font-size:11px}
+ .main-business-info-inner span{white-space:normal}
 }
 /* Attached logo and readable slogan */
 .hero-v2-badge{display:none!important}
