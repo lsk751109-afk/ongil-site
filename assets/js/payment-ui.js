@@ -78,6 +78,7 @@
       .payment-button{width:100%;border:0;border-radius:12px;padding:15px 16px;background:#c79b51;color:#102f27;font-size:17px;font-weight:900;cursor:pointer}
       .payment-button:disabled{opacity:.45;cursor:not-allowed}
       .payment-status{margin:12px 0 0;font-size:12px;line-height:1.55;color:#c9d4d0}
+      .payment-business{margin:14px 0 0;padding-top:12px;border-top:1px solid rgba(255,255,255,.14);font-size:11px;line-height:1.7;color:#aebdb7}
       @media(max-width:900px){.ongil-payment .payment-wrap{grid-template-columns:1fr}.payment-summary{position:static}.payment-service-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
       @media(max-width:520px){.payment-service-grid,.payment-group .payment-service-grid{grid-template-columns:1fr}.payment-summary{padding:20px}.payment-group-head{align-items:flex-start;flex-direction:column}}
     `;
@@ -117,6 +118,7 @@
           <div class="payment-total-row"><span>총 결제금액</span><strong id="paymentTotal">0원</strong></div>
           <button class="payment-button" id="paymentButton" type="button" disabled>서비스 선택 후 결제하기</button>
           <p class="payment-status" id="paymentStatus">결제 승인 후 서버에서 결제 상태와 금액을 확인해야 이용권이 활성화됩니다.</p>
+          <p class="payment-business">판매자: 마켓하우스<br>사업자등록번호: 203-31-37605<br>통신판매업 신고번호: 제2023-인천옹진-0040호<br>사업장 주소: 인천광역시 옹진군 선재로265번길 51 나동117</p>
         </aside>
       </div>`;
     const archive = document.querySelector('#archive');
