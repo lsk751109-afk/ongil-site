@@ -85,7 +85,7 @@
 
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/service-worker.js').catch(error => console.error('Service worker registration failed:', error));
+      navigator.serviceWorker.register('/service-worker.js?v=20260806-cache-v4', { updateViaCache: 'none' }).catch(error => console.error('Service worker registration failed:', error));
     });
   }
 
