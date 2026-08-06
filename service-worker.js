@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ongil-shell-20260804-v3';
+const CACHE_NAME = 'ongil-shell-20260806-v4';
 const CORE_ASSETS = [
   '/',
   '/site.webmanifest',
@@ -7,7 +7,7 @@ const CORE_ASSETS = [
   '/assets/img/ongil-app-icon-192.png',
   '/assets/img/ongil-app-icon-512.png',
   '/assets/img/ongil-apple-touch-icon.png',
-  '/assets/js/install-shortcut.js?v=20260804-v2'
+  '/assets/js/install-shortcut.js?v=20260806-cache-v4'
 ];
 
 self.addEventListener('install', event => {
@@ -26,7 +26,7 @@ self.addEventListener('fetch', event => {
   if (url.origin !== self.location.origin) return;
 
   if (event.request.mode === 'navigate') {
-    event.respondWith(fetch(event.request).then(response => {
+    event.respondWith(fetch(event.request, { cache: 'no-store' }).then(response => {
       const copy = response.clone();
       caches.open(CACHE_NAME).then(cache => cache.put('/', copy));
       return response;
